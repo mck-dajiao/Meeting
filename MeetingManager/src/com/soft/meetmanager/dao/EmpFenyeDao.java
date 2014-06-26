@@ -12,8 +12,8 @@ import com.soft.meetmanager.util.ConnectionFactory;
 
 public class EmpFenyeDao {
 	
-	public List search(String username,String empname,int beginInt,int endInt){
-		List emplist = new ArrayList();
+	public List<Employee> search(String username,String empname,int beginInt,int endInt){
+		List<Employee> emplist = new ArrayList<Employee>();
 		Connection conn = ConnectionFactory.getConnection();
 		String sql = "select * from (select rownum rm,employeeid," +
 				"employeename,username,phone,email,departmentid," +
@@ -44,8 +44,8 @@ public class EmpFenyeDao {
 		return emplist;
 	}
 	
-	public List pageSum(String username,String empname){
-		List emplist = new ArrayList();
+	public List<Employee> pageSum(String username,String empname){
+		List<Employee> emplist = new ArrayList<Employee>();
 		Connection conn = ConnectionFactory.getConnection();
 		String sql = "select rownum,employeeid," +
 				"employeename,username,phone,email,departmentid," +
