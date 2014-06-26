@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <display-name></display-name>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>AddmeetingServlet</servlet-name>
+    <servlet-class>com.soft.meetmanager.servlet.AddmeetingServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>AddmeetingRoom</servlet-name>
+    <servlet-class>com.soft.meetmanager.servlet.AddmeetingRoom</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DepartmentServlet</servlet-name>
+    <servlet-class>com.soft.meetmanager.servlet.DepartmentServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>RegisterServlet</servlet-name>
+    <servlet-class>com.soft.meetmanager.servlet.RegisterServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>BookMeetingServlet</servlet-name>
+    <servlet-class>com.soft.meetmanager.servlet.BookMeetingServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SelectMeetingServlet</servlet-name>
+    <servlet-class>com.soft.meetmanager.servlet.SelectMeetingServlet</servlet-class>
+     <init-param>
+    
+    <param-name>actions</param-name>
+    
+    <param-value>/WEB-INF/action.properties</param-value>
+    
+    </init-param>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>MeetingDetailServlet</servlet-name>
+    <servlet-class>com.soft.meetmanager.servlet.MeetingDetailServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UpdateMeetroomServlet</servlet-name>
+    <servlet-class>com.soft.meetmanager.servlet.UpdateMeetroomServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>com.soft.meetmanager.servlet.LoginServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>LoginDAO</servlet-name>
+    <servlet-class>com.soft.meetmanager.dao.LoginDAO</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DepartmentServlet2</servlet-name>
+    <servlet-class>com.soft.meetmanager.servlet.DepartmentServlet2</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>MybookingServlet</servlet-name>
+    <servlet-class>com.soft.meetmanager.servlet.MybookingServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SearchemployeeServlet</servlet-name>
+    <servlet-class>com.soft.meetmanager.servlet.SearchemployeeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>MymeetingServlet</servlet-name>
+    <servlet-class>com.soft.meetmanager.servlet.MymeetingServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>NotificationsServlet</servlet-name>
+    <servlet-class>com.soft.meetmanager.servlet.NotificationsServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SearchmeetingroomServlet</servlet-name>
+    <servlet-class>com.soft.meetmanager.servlet.SearchmeetingroomServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>MyMtDetailServlet</servlet-name>
+    <servlet-class>com.soft.meetmanager.servlet.MyMtDetailServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>CancelServlet</servlet-name>
+    <servlet-class>com.soft.meetmanager.servlet.CancelServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>LookingForServlet</servlet-name>
+    <servlet-class>com.soft.meetmanager.servlet.LookingForServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ShenpiServlet</servlet-name>
+    <servlet-class>com.soft.meetmanager.servlet.ShenpiServlet</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>AddmeetingServlet</servlet-name>
+    <url-pattern>/AddmeetingServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddmeetingRoom</servlet-name>
+    <url-pattern>/AddmeetingRoom</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DepartmentServlet</servlet-name>
+    <url-pattern>/DepartmentServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>RegisterServlet</servlet-name>
+    <url-pattern>/RegisterServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>BookMeetingServlet</servlet-name>
+    <url-pattern>/BookMeetingServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SelectMeetingServlet</servlet-name>
+    <url-pattern>/SelectMeetingServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MeetingDetailServlet</servlet-name>
+    <url-pattern>/MeetingDetailServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpdateMeetroomServlet</servlet-name>
+    <url-pattern>/UpdateMeetroomServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LoginDAO</servlet-name>
+    <url-pattern>/LoginDAO</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DepartmentServlet2</servlet-name>
+    <url-pattern>/DepartmentServlet2</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MybookingServlet</servlet-name>
+    <url-pattern>/MybookingServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SearchemployeeServlet</servlet-name>
+    <url-pattern>/SearchemployeeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MymeetingServlet</servlet-name>
+    <url-pattern>/MymeetingServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>NotificationsServlet</servlet-name>
+    <url-pattern>/NotificationsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SearchmeetingroomServlet</servlet-name>
+    <url-pattern>/SearchmeetingroomServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MyMtDetailServlet</servlet-name>
+    <url-pattern>/MyMtDetailServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CancelServlet</servlet-name>
+    <url-pattern>/CancelServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LookingForServlet</servlet-name>
+    <url-pattern>/LookingForServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ShenpiServlet</servlet-name>
+    <url-pattern>/ShenpiServlet</url-pattern>
+  </servlet-mapping>	
+  <welcome-file-list>
+    <welcome-file>login.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
