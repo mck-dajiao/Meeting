@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -7,12 +7,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE html>
 <html>
     <head>
-<meta http-equiv="content-type" content="text/html";charset="gb2312">
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>CoolMeeting会议管理系统</title>
         <link rel="stylesheet" href="styles/common.css"/>
     </head>
+
     <body>
- 
+	<%@include file="02.jsp" %>
+    
+    
             <div class="page-content">
                 <div class="content-nav">
                     登录
@@ -45,7 +49,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </fieldset>
                 </form>
             </div>
-        </div>
+        
         
     </body>
 </html>
