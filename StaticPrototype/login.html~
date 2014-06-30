@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+    <title>会议管理系统</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="TM就是会议管理系统啊">
+    <meta name="keywords" content="会议管理系统">
+    <meta name="author" content="dajiao，dowson">
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  
+
+	<link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="./styles/dajiao.css" rel="stylesheet" type="text/css"/>
+    <link href="./styles/main.min.css" rel="stylesheet" type="text/css"/>
+
+	<!--[if (gte IE 6)&(lte IE 8)]>
+	<script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js"></script>
+	<![endif]-->
+
+</head>
+<body class="home-template default-bg">
+
+    <nav class="navbar navbar-ghost navbar-fixed-top" role="navigation">
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display . span is for line in button.-->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#global-navbar">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	    </div>
+
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="global-navbar">
+	    	<ul class="nav navbar-nav">
+		        <li><a href="#" onclick="showAlert();" >查看通知</a></li>
+		        <li><a href="./booking.html">预约会议室</a></li>
+		        <li><a href="./myMeetingRoom.html">我的会议</a></li>
+		        <li><a href="./myBooking.html">我的预订</a></li>
+		        <li><a href="./meetingInfoChange.html">会议变更</a></li>
+		        <li><a href="#login" data-toggle="modal" >不要点我</a></li>
+			</ul>
+			
+	    </div>
+
+
+
+	</div>
+</nav>
+
+<header id="logo" class="container">
+	<div class="row">
+		<div class="col-lg-8 col-lg-push-2">
+		    
+			    <h1 class="blog-title">
+			    	<a href="/">会议管理系统</a>
+			    </h1>
+			    <h2 class="blog-desc">
+			    	<a href="#">这TM就是一个会议管理系统，得有账号才能登陆！</a>
+			    </h2>	
+				<p>
+					<a class="btn btn-lg btn-primary btn-shadow bs3-link btn-login" role="button" data-toggle="modal" href="#login" >爷有账号</a>
+				</p>
+				<p>
+					<a class="btn btn-lg btn-primary btn-shadow bs3-link " role="button" data-toggle="modal" href="#register" >咦，我还没有账号</a>
+				</p>
+		</div>
+    </div>
+</header>
+ <!-- 登录对话框开始 -->
+    <div id="login" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title text-center">用户登录</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="username" class="control-label col-md-2">用户名</label>
+                            <div class="col-md-10">
+                                <input type="text" id="username" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="control-label col-md-2">密码</label>
+                            <div class="col-md-10">
+                                <input type="password" id="password" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-5">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">登录</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-center">
+                          <a href="#">忘记密码</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 登录对话框结束 -->
+	
+	 <!-- 注册对话框开始 -->
+    <div id="register" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title text-center">用户注册</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="username" class="control-label col-md-2">用户名</label>
+                            <div class="col-md-10">
+                                <input type="text" id="username" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="control-label col-md-2">密码</label>
+                            <div class="col-md-10">
+                                <input type="password" id="password" class="form-control" />
+                            </div>
+                        </div>
+						<div class="form-group">
+                            <label for="password" class="control-label col-md-2">真实姓名</label>
+                            <div class="col-md-10">
+                                <input type="text" id="realname" class="form-control" />
+                            </div>
+                        </div>
+						<div class="form-group">
+                            <label for="password" class="control-label col-md-2">部门</label>
+                            <div class="col-md-10">
+                                <input type="text" id="department" class="form-control" />
+                            </div>
+                        </div>
+						<div class="form-group">
+                            <label for="password" class="control-label col-md-2">暗号</label>
+                            <div class="col-md-10">
+                                <input type="text" id="anhao" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="text-center">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">注册</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- 注册对话框结束 -->
+
+<footer class="container">
+
+</footer>
+
+    <script src="./scripts/jquery-1.11.0.min.js"></script>
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
+	<script src="./scripts/bootbox.min.js"></script>
+    <script type="text/javascript">
+        function showAlert() {
+            bootbox.alert("你TM还没登陆呢！！！！");
+			bootbox.center();
+        }
+    </script>
+
+</body>
+</html>
