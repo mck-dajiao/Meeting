@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>变更会议</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <style type="text/css">
+        body {
+            padding-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h3><strong>变更会议</strong></h3>
+        </div>
+        <form class="col-md-8">
+            <fieldset class="form-horizontal">
+                <legend>变更会议</legend>
+                <div class="form-group">
+                    <label for="name" class="col-md-2 control-label">会议主题</label>
+                    <div class="col-md-8">
+                        <input type="text" id="name" value="软件学院实习事项" placeholder="会议主题" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="name" class="col-md-2 control-label">会议室</label>
+                    <div class="col-md-8">
+                        <input type="text" id="name" value="第一会议室" placeholder="会议室" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="birthday" class="col-md-2 control-label">起始时间：</label>
+                    <div class="col-md-4">
+                        <input type="date" id="birthday" class="form-control" value="1979-05-04" />
+                    </div>
+					<div class="col-md-4">
+                        <input type="time" id="StartTime" class="form-control"/>
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label for="birthday" class="col-md-2 control-label">结束时间：</label>
+                    <div class="col-md-4">
+                        <input type="date" id="birthday" class="form-control" value="1979-05-04" />
+                    </div>
+					<div class="col-md-4">
+                        <input type="time" id="StartTime" class="form-control"/>
+                    </div>
+                </div>
+				<div class="form-group">
+                    <label for="name" class="col-md-2 control-label">变更说明</label>
+                    <div class="col-md-8">
+                        <input type="text" id="name" value="院长上厕所去了" placeholder="会议室" class="form-control" />
+                    </div>
+                </div>
+
+            </fieldset>
+            <div class="text-center form-group">
+                <button type="button" class="btn btn-primary">确定</button>
+                <button type="button" class="btn btn-default">取消</button>
+            </div>
+        </form>
+    </div>
+    <script src="scripts/jquery-1.11.0.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
