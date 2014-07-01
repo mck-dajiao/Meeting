@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     
-    <title>会议管理系统</title>
+    <title>预约会议</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="TM就是会议管理系统啊">
     <meta name="keywords" content="会议管理系统">
@@ -44,21 +44,118 @@
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="global-navbar">
 	    	<ul class="nav navbar-nav">
-		        <li><a href="./myNotification.html">查看通知</a></li>
+		        <li><a href="./myNotification.html">查看通知<span class="badge">8</span></a></li>
 		        <li class="active"><a href="./BookingRoom.html">预约会议室</a></li>
 		        <li><a href="./myMeetingRoom.html">我的会议</a></li>
 		        <li><a href="./myBooking.html">我的预订</a></li>
 				<li><a href="./myEquitment.html">设备申请</a></li>
-		        <li><a href="./myMeetingInfoChange.html">会议变更</a></li>
+				<li><a href="./login.html">logout</a></li>
 			</ul>
-			
+			<p class="navbar-text user">dajiao 欢迎您</p>	
 	    </div>
 
 	</div>
 </nav>
 
+
 <header id="logo" class="container">
+<div class="row">
+		<div class="col-lg-8 col-lg-push-2">
+		    
+			    <h1 class="blog-title">
+			    	<a href="/">预约会议</a>
+			    </h1>
+		</div>
+    </div>
 </header>
+
+<main class="container" role="main">
+                    
+	<div class="bookingRoom jumbotron">
+    <!-- 搜索表单开始 -->
+    <div class="container">
+        <form>
+            <div class="form-inline">
+				<label class="control-label">起始时间:</label>
+                <div class="form-group">
+                    <input type="date" placeholder="起始时间日期" class="form-control" />
+                </div>
+				<div class="form-group">
+                    <input type="time" placeholder="起始时间" class="form-control" />
+                </div>
+				<label class="control-label col-md-offset-1">结束时间:</label>
+				<div class="form-group">
+                    <input type="date" placeholder="结束时间日期" class="form-control" />
+                </div>
+				<div class="form-group">
+                    <input type="time" placeholder="结束时间" class="form-control" />
+                </div>
+                <div class="form-group col-md-offset-1">
+                    <button type="submit" class="btn btn-primary">查询</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- 搜索表单结束 -->
+	
+	</div>
+
+    <div class="text-center jumbotron">
+        <table class="table">
+            <caption>
+            </caption>
+            <thead>
+                <tr>
+                    <th class="text-center" >会议室</th>
+                    <th class="text-center" >说明</th>
+                    <th class="text-center" >操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>第一会议室</td>
+                    <td>多媒体</td>
+                    <td class="text-center">
+                        <a href="#" class="btn btn-default");">预约</a>
+						<a href="#" class="btn btn-default" onclick="return confirm('确实要取消该会议吗？');">取消</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>第二会议室</td>
+                    <td>普通</td>
+                    <td class="text-center">
+                        <a href="#" class="btn btn-default");">预约</a>
+						<a href="#" class="btn btn-default" onclick="return confirm('确实要取消该会议吗？');">取消</a>
+                    </td>
+                </tr>
+				<tr>
+                    <td>第三会议室</td>
+                    <td>普通</td>
+                    <td class="text-center">
+                        <a href="#" class="btn btn-default");">预约</a>
+						<a href="#" class="btn btn-default" onclick="return confirm('确实要取消该会议吗？');">取消</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+	
+
+</main>
+
+
+<footer class="container">
+	<div class="row">
+	    <div class="col-xs-12" id="social-icons">
+		</div>
+
+	    <div class="col-xs-12" id="copyrights">
+	         <section class="copyright">All content copyright <a href="https://github.com/mck-dajiao">大脚的Github</a> &copy; 2014 &bull; All rights reserved.</section>
+	         <section class="poweredby">Proudly published with <a href="https://github.com/mck-dajiao">mck-dajiao</a></section>
+	    </div>
+    </div>
+</footer>
+
 
     <script src="./scripts/jquery-1.11.0.min.js"></script>
     <script src="./bootstrap/js/bootstrap.min.js"></script>

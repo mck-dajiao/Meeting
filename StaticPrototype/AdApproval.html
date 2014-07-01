@@ -45,12 +45,11 @@
 	    	<ul class="nav navbar-nav">
 		        <li><a href="./admin.html">管理员首页</a></li>
 		        <li class="active" ><a href="./AdApproval.html">注册审批</a></li>
-		        <li><a href="./AdEmployee.html">查看员工</a></li>
+		        <li><a href="./AdEmployee.html">用户管理</a></li>
 		        <li><a href="./AdDepartment.html">部门管理</a></li>
-		        <li><a href="./AdSearchMeetingRoom.html">查看会议室</a></li>
+		        <li><a href="./AdSearchMeetingRoom.html">会议室管理</a></li>
 		        <li><a href="./AdEquitment.html">设备管理</a></li>
-		        <li><a href="./AdModifyMeetingRoom.html">会议室信息修改</a></li>
-		        <li><a href="./AdAddMeetingRoom.html">添加会议室</a></li>
+				<li><a href="./login.html"><font style="color:red" >退出登录</font></a></li>
 			</ul>
 			
 	    </div>
@@ -63,15 +62,83 @@
 		<div class="col-lg-8 col-lg-push-2">
 		    
 			    <h1 class="blog-title">
-			    	<a href="/">会议管理系统</a>
+			    	<a href="/">注册审批</a>
 			    </h1>
-			    <h2 class="blog-desc">
-			    	<a href="#">管理员，欢迎你！</a>
-			    </h2>	
-				<h1>怎样开摩托车，你知道吗？我不知道</h2>
 		</div>
     </div>
 </header>
+
+<main class="container" role="main">
+
+	<div class="container jumbotron">
+        <table class="table text-center">
+   
+            <thead>
+                <tr>
+                    <th class="text-center">姓名</th>
+                    <th class="text-center">工号</th>
+                    <th class="text-center">部门</th>
+					<th class="text-center">暗号</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>韦壮城</td>
+                    <td>201131000518</td>
+					<td>体育部</td>
+					<td>天王盖地虎</td>
+                    <td class="text-center">
+                        <a href="#" class="btn btn-default");">通过</a>
+						<a href="#" class="btn btn-default" onclick="return confirm('真的要拒绝他/她？');">拒绝</a>
+                    </td>
+                </tr>
+				<tr>
+                    <td>陈蕴洲</td>
+                    <td>201131000504</td>
+					<td>学习部</td>
+					<td>小猫抓老鼠</td>
+                    <td class="text-center">
+                        <a href="#" class="btn btn-default");">通过</a>
+						<a href="#" class="btn btn-default" onclick="return confirm('真的要拒绝他/她？');">拒绝</a>
+                    </td>
+                </tr>
+				<tr>
+                    <td>黄文智</td>
+                    <td>201131000507</td>
+					<td>策划部</td>
+					<td>宝塔镇河妖</td>
+                    <td class="text-center">
+                        <a href="#" class="btn btn-default");">通过</a>
+						<a href="#" class="btn btn-default" onclick="return confirm('真的要拒绝他/她？');">拒绝</a>
+                    </td>
+                </tr>
+				<tr>
+                    <td>曾健洪</td>
+                    <td>201131000521</td>
+					<td>组织部</td>
+					<td>小鸡炖蘑菇</td>
+                    <td class="text-center">
+                        <a href="#" class="btn btn-default");">通过</a>
+						<a href="#" class="btn btn-default" onclick="return confirm('真的要拒绝他/她？');">拒绝</a>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</main>
+
+<footer class="container">
+	<div class="row">
+	    <div class="col-xs-12" id="social-icons">
+		</div>
+
+	    <div class="col-xs-12" id="copyrights">
+	         <section class="copyright">All content copyright <a href="https://github.com/mck-dajiao">大脚的Github</a> &copy; 2014 &bull; All rights reserved.</section>
+	         <section class="poweredby">Proudly published with <a href="https://github.com/mck-dajiao">mck-dajiao</a></section>
+	    </div>
+    </div>
+</footer>
 
     <script src="./scripts/jquery-1.11.0.min.js"></script>
     <script src="./bootstrap/js/bootstrap.min.js"></script>

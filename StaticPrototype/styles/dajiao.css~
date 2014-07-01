@@ -7,9 +7,6 @@
 	border-color:green	
 }
 
-@media (min-width:768px){
-.user{position:absolute;right:15px;top:0;color:white}}
-
 /* BookingRoom.html begin*/
 .bookingRoom{
 	background-color:white;
@@ -25,5 +22,3 @@
 	background-color:white;
 }
 /* BookingRoom.html begin*/
-
-

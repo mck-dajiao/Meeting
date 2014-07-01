@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<!-- saved from url=(0026)http://www.ghostchina.com/ -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Ghost 是一套基于 Node.js 构建的开源博客平台（Open source blogging platform），具有易用的书写界面和体验，博客内容默认采用 Markdown 语法书写，目标是取代臃肿的 Wordpress。">
+    <meta name="keywords" content="Ghost,blog,Ghost中国,Ghost博客,Ghost中文,Ghost中文文档">
+    <meta name="author" content="Ghost中文网">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+
+    
+    <title>Ghost 开源博客平台 | Ghost中文网</title>
+
+    
+    <link href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://cdn.bootcss.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./admin_files/main.min.css">
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	  <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	  <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" href="http://www.ghostchina.com/assets/ico/apple-touch-icon-precomposed.png?v=20d25bafa3">
+    <link rel="icon" href="http://www.ghostchina.com/assets/ico/favicon.ico?v=20d25bafa3">
+
+<style id="clearly_highlighting_css" type="text/css">/* selection */ html.clearly_highlighting_enabled ::-moz-selection { background: rgba(246, 238, 150, 0.99); } html.clearly_highlighting_enabled ::selection { background: rgba(246, 238, 150, 0.99); } /* cursor */ html.clearly_highlighting_enabled {    /* cursor and hot-spot position -- requires a default cursor, after the URL one */    cursor: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--cursor.png") 14 16, text; } /* highlight tag */ em.clearly_highlight_element {    font-style: inherit !important; font-weight: inherit !important;    background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--yellow.png");    background-repeat: repeat-x; background-position: top left; background-size: 100% 100%; } /* the delete-buttons are positioned relative to this */ em.clearly_highlight_element.clearly_highlight_first { position: relative; } /* delete buttons */ em.clearly_highlight_element a.clearly_highlight_delete_element {    display: none; cursor: pointer;    padding: 0; margin: 0; line-height: 0;    position: absolute; width: 34px; height: 34px; left: -17px; top: -17px;    background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--delete-sprite.png"); background-repeat: no-repeat; background-position: 0px 0px; } em.clearly_highlight_element a.clearly_highlight_delete_element:hover { background-position: -34px 0px; } /* retina */ @media (min--moz-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2) {    em.clearly_highlight_element { background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--yellow@2x.png"); }    em.clearly_highlight_element a.clearly_highlight_delete_element { background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--delete-sprite@2x.png"); background-size: 68px 34px; } } </style><style>.lookupWDLROP, .lookupforemostWDLROP, .lookupdockedWDLROP, .rowiframeWDLROP, .celliframeWDLROP, .iframeWDLROP, .emptyWDLROP, .barWDLROP, .barforemostWDLROP, .bardockedWDLROP, .cellWDLROP, .leftWDLROP, .rightWDLROP, .buttoncontainerWDLROP, .buttonWDLROP, .buttonimageWDLROP, .waitingWDLROP, .handleWDLROP, .queryWDLROP, .hintWDLROP, .templateWDLROP, .firstlevelgroupWDLROP, .notfirstlevelgroupWDLROP{
+	    background: none !important;
+	    border: 0px !important;
+	    border-style: none !important;
+	     color: black !important;
+	     direction: ltr !important;
+	     float: none !important;
+	     font-family: sans-serif !important;
+	     font-size: small !important;
+	     font-style: normal !important;
+	     font-variant: normal !important;
+	     font-weight: normal !important;
+	     letter-spacing: normal !important;
+	     line-height: normal !important;
+	     margin: 0px !important;
+	    padding: 0px !important;
+	    text-align: left !important;
+	     text-decoration: none !important;
+	     text-indent: 0px !important;
+	     text-transform: none !important;
+	     vertical-align: baseline !important;
+	    white-space: normal !important;
+}
+
+div.lookupWDLROP{
+	     display: table !important;
+	     -webkit-transition: -webkit-box-shadow 0.25s linear, border-color 0.25s linear !important;
+}
+
+div.lookupforemostWDLROP{
+}
+
+div.lookupdockedWDLROP{
+}
+
+div.rowiframeWDLROP{
+	     display: table-row !important;
+}
+
+div.rowiframeWDLROP td.celliframeWDLROP{
+	      display: table-cell !important;
+	      width: 100% !important;
+	      height: 100% !important;
+}
+
+td.celliframeWDLROP iframe.iframeWDLROP{
+	       display: inline !important;
+	       width: 100% !important;
+	       height: 100% !important;
+	       background-color: white !important;
+}
+
+iframe.emptyWDLROP{
+	       background-image: url('chrome-extension://hljnlfolmbmibdjaikiaepgepgnldclj/img/128.png') !important;
+	       background-position: 50% 50% !important;
+	       background-repeat: no-repeat !important;
+}
+
+div.barWDLROP{
+	     display: table-row !important;
+	     -webkit-transition: background 0.25s linear !important;
+	     width: 100% !important;
+	     cursor: move !important;
+	     background: lightgrey !important;
+}
+
+div.barforemostWDLROP{
+	background: #84b7ea !important;
+}
+
+div.bardockedWDLROP{
+	background: #336699 !important;
+}
+
+div.barWDLROP div.cellWDLROP{
+	     display: table-cell !important;
+	     vertical-align: middle !important;
+}
+
+div.leftWDLROP{
+	     padding-right: 16px !important;
+	     text-align: left !important;
+}
+
+div.rightWDLROP{
+	     white-space: nowrap !important;
+	     text-align: right !important;
+}
+
+span.buttoncontainerWDLROP{
+	     display:inline !important;
+}
+
+a.buttonWDLROP:link{
+	     display:inline !important;
+	     -webkit-user-select: none !important;
+	     color: transparent !important;
+}
+
+a.buttonWDLROP img.buttonimageWDLROP{
+	     display:inline !important;
+	     vertical-align: middle !important;
+}
+
+img.waitingWDLROP{
+	     display:inline !important;
+	     cursor: pointer !important;
+	     -webkit-user-select: none !important;
+	     vertical-align: middle !important;
+	     padding-left: 6px !important;
+	 padding-right: 6px !important;
+}
+
+div.handleWDLROP{
+	     display:block !important;
+	     cursor: se-resize !important;
+	     left: 100% !important;
+	     top: 100% !important;
+	     margin-left: -4px !important;
+	     margin-top: -4px !important;
+	     position: absolute !important;
+	     width: 8px !important;
+	 height: 8px !important;
+}
+
+input.queryWDLROP{
+	     display:inline-block !important;
+	     background: white !important;
+	     vertical-align: top !important;
+	     border: 1px solid darkgrey !important;
+	      font-size: 13px !important;
+	      padding-top: 1px !important;
+	 padding-bottom: 1px !important;
+	     width: 12em !important;
+}
+
+.hintWDLROP{
+	      color: lightgrey !important;
+	      font-style:italic !important;
+}
+
+select.templateWDLROP{
+	     display:inline-block !important;
+	     background: white !important;
+	     font-size: 13px !important;
+	      border: 1px solid darkgrey !important;
+	      vertical-align: top !important;
+	     white-space: pre !important;
+	     width: 9em !important;
+	     margin-right: 2px !important;
+}
+
+optgroup.firstlevelgroupWDLROP{
+	      color: blue !important;
+}
+
+.notfirstlevelgroupWDLROP{
+	      color: black !important;
+}
+
+</style><style>.tipYPZHUV, .arrowYPZHUV, .arrowupYPZHUV, .arrowdownYPZHUV, .mainYPZHUV, .closeYPZHUV, .barYPZHUV, .rowYPZHUV, .cellYPZHUV, .leftYPZHUV, .rightYPZHUV, .displaytitleYPZHUV, .refreshYPZHUV, .pagingYPZHUV, .brandYPZHUV, .textYPZHUV, .leftlabelYPZHUV, .selectYPZHUV, .checkboxYPZHUV, .waitingYPZHUV, .buttoncontainerYPZHUV, .buttonYPZHUV, .buttonimageYPZHUV, .flagYPZHUV, .noticebarscontainerYPZHUV, .noticebarYPZHUV, .iframecontentYPZHUV{
+	    background: none !important;
+	    border: 0px !important;
+	    border-style: none !important;
+	     color: black !important;
+	     direction: ltr !important;
+	     float: none !important;
+	     font-family: sans-serif !important;
+	     font-size: small !important;
+	     font-style: normal !important;
+	     font-variant: normal !important;
+	     font-weight: normal !important;
+	     letter-spacing: normal !important;
+	     line-height: normal !important;
+	     margin: 0px !important;
+	    padding: 0px !important;
+	    text-align: left !important;
+	     text-decoration: none !important;
+	     text-indent: 0px !important;
+	     text-transform: none !important;
+	     vertical-align: baseline !important;
+	    white-space: normal !important;
+}
+
+div.tipYPZHUV{
+	     position: absolute !important;
+	     display:block !important;
+}
+
+div.arrowYPZHUV{
+	display:block !important;
+}
+
+canvas.arrowupYPZHUV{
+	      display: inline !important;
+	      vertical-align: bottom !important;
+}
+
+canvas.downupYPZHUV{
+	      display: inline !important;
+	      vertical-align: top !important;
+}
+
+div.mainYPZHUV{
+	display: block !important;
+}
+
+img.closeYPZHUV{
+	      display: block !important;
+	      -webkit-transition: opacity 0.5s linear !important;
+	      float: right !important;
+	      margin-right: -5px !important;
+	      margin-top: -5px !important;
+}
+
+div.barYPZHUV{
+	     display: table !important;
+	      margin-bottom: 4px !important;
+	     -webkit-user-select: none !important;
+	     width: 100% !important;
+}
+
+div.rowYPZHUV{
+	display: table-row !important;
+}
+
+div.cellYPZHUV{
+	      display: table-cell !important;
+	      vertical-align: middle !important;
+}
+
+.leftYPZHUV{
+	      padding-right: 16px !important;
+	      text-align: left !important;
+}
+
+.rightYPZHUV{
+	text-align: right !important;
+}
+
+span.refreshYPZHUV{
+	display: inline !important;
+}
+
+span.pagingYPZHUV{
+	      display: inline !important;
+	      font-size: x-small !important;
+}
+
+span.buttoncontainerYPZHUV{
+	display: inline !important;
+}
+
+span.displaytitleYPZHUV{
+	      display: inline !important;
+	      padding-left: 6px !important;
+	      font-size: small !important;
+	      font-weight: bold !important;
+}
+
+span.displaytitleYPZHUV a:link{
+	       display: inline !important;
+	       color: #0645AD !important;
+	       text-decoration: none !important;
+}
+
+span.displaytitleYPZHUV img{
+	display: inline !important;
+}
+
+span.brandYPZHUV{
+	      display: inline !important;
+	      font-size: x-small !important;
+}
+
+.brandYPZHUV a{
+	       display: inline !important;
+	       font-size: x-small !important;
+}
+
+.brandYPZHUV a:link{
+	       display: inline !important;
+	       color: #0645AD !important;
+	       text-decoration: none !important;
+}
+
+.brandYPZHUV a:visited{
+	       display: inline !important;
+	       color: #0B0080 !important;
+	       text-decoration: none !important;
+}
+
+span.textYPZHUV{
+	      display: inline !important;
+	      font-size: x-small !important;
+}
+
+label.leftlabelYPZHUV{
+	      display: inline !important;
+	      font-size: x-small !important;
+	      margin-right: 3px !important;
+}
+
+select.selectYPZHUV{
+	       display: inline-block !important;
+	       border: 1px solid darkgrey !important;
+	       white-space: pre !important;
+	       font-size: x-small !important;
+}
+
+input.checkboxYPZHUV{
+	      display: inline-block !important;
+	      vertical-align: text-top !important;
+	      font-size: x-small !important;
+	      margin-right: 0.3em !important;
+}
+
+img.waitingYPZHUV{
+	      display: inline !important;
+	      -webkit-user-select: none !important;
+	      vertical-align: middle !important;
+	      padding-left: 3px !important;
+}
+
+a.buttonYPZHUV, a.buttonYPZHUV:link{
+	      display: inline !important;
+	      -webkit-user-select: none !important;
+	      color: transparent !important;
+	      margin-right: 2px !important;
+}
+
+img.buttonimageYPZHUV{
+	      display: inline !important;
+	      vertical-align: middle !important;
+}
+
+img.flagYPZHUV{
+	      display: inline !important;
+	      vertical-align: middle !important;
+	      padding-bottom:2px !important;
+}
+
+img.buttonselectedYPZHUV{
+	      display: inline !important;
+	      background: #dd8 !important;
+	      border: 1px solid #bb6 !important;
+	      margin: -1px !important;
+	      border-radius: 2px !important;
+}
+
+div.noticebarscontainerYPZHUV{
+	     display: block !important;
+	     text-align: left !important;
+	     margin-bottom: 4px !important;
+	     overflow-y: auto !important;
+}
+
+div.noticebarYPZHUV{
+	     display: block !important;
+	     background: white !important;
+	     font-size: x-small !important;
+	     border-left: 3px solid lightGrey !important;
+	     margin-bottom: 1px !important;
+	     padding-left: 2px !important;
+}
+
+div.noticebarYPZHUV img{
+	      display: inline !important;
+	      margin-right: 1px !important;
+	      vertical-align: text-top !important;
+}
+
+div.noticebarYPZHUV a{
+	      display: inline !important;
+	      font-family: sans-serif !important;
+	       font-style: normal !important;
+	       font-variant: normal !important;
+	       font-weight: normal !important;
+	       font-size: x-small !important;
+}
+
+div.noticebarYPZHUV a:link{
+	      display: inline !important;
+	      color: #0645AD !important;
+	      text-decoration: none !important;
+}
+
+div.noticebarYPZHUV a:visited{
+	      display: inline !important;
+	      color: #0B0080 !important;
+	      text-decoration: none !important;
+}
+
+iframe.iframecontentYPZHUV{
+	     display: inline !important;
+	     width: 100% !important;
+}
+
+</style><style>[touch-action="none"]{ -ms-touch-action: none; touch-action: none; }[touch-action="pan-x"]{ -ms-touch-action: pan-x; touch-action: pan-x; }[touch-action="pan-y"]{ -ms-touch-action: pan-y; touch-action: pan-y; }[touch-action="scroll"],[touch-action="pan-x pan-y"],[touch-action="pan-y pan-x"]{ -ms-touch-action: pan-x pan-y; touch-action: pan-x pan-y; }</style><style id="simplehl_hlstyle_WTWJAJ">.simplehl1_EZCRBH { display: inline!important;font-family:inherit!important; font-style:inherit!important; font-variant:inherit!important; font-weight:inherit!important; border-color: transparent !important; color: #000000!important; background-color: rgba(255,0,0,0.7)!important; font-size: inherit!important; -webkit-transition-property: color, background-color, -webkit-box-shadow; -webkit-transition-duration: 0.5s, 0.5s, 0.5s; -webkit-transition-timing-function: linear, linear, linear; padding: 0.2em!important; -webkit-box-shadow: rgba(0,0,0,0.42) 3px 3px 4px!important; border-radius: 6px!important; } .simplehl2_EZCRBH { display: inline!important;font-family:inherit!important; font-style:inherit!important; font-variant:inherit!important; font-weight:inherit!important; border-color: transparent !important; color: #000000!important; background-color: rgba(255,165,0,0.7)!important; font-size: inherit!important; -webkit-transition-property: color, background-color, -webkit-box-shadow; -webkit-transition-duration: 0.5s, 0.5s, 0.5s; -webkit-transition-timing-function: linear, linear, linear; padding: 0.2em!important; -webkit-box-shadow: rgba(0,0,0,0.42) 3px 3px 4px!important; border-radius: 6px!important; } .simplehl3_EZCRBH { display: inline!important;font-family:inherit!important; font-style:inherit!important; font-variant:inherit!important; font-weight:inherit!important; border-color: transparent !important; color: #000000!important; background-color: rgba(255,255,96,0.7)!important; font-size: inherit!important; -webkit-transition-property: color, background-color, -webkit-box-shadow; -webkit-transition-duration: 0.5s, 0.5s, 0.5s; -webkit-transition-timing-function: linear, linear, linear; padding: 0.2em!important; -webkit-box-shadow: rgba(0,0,0,0.42) 3px 3px 4px!important; border-radius: 6px!important; } .simplehl4_EZCRBH { display: inline!important;font-family:inherit!important; font-style:inherit!important; font-variant:inherit!important; font-weight:inherit!important; border-color: transparent !important; color: #000000!important; background-color: rgba(96,255,96,0.7)!important; font-size: inherit!important; -webkit-transition-property: color, background-color, -webkit-box-shadow; -webkit-transition-duration: 0.5s, 0.5s, 0.5s; -webkit-transition-timing-function: linear, linear, linear; padding: 0.2em!important; -webkit-box-shadow: rgba(0,0,0,0.42) 3px 3px 4px!important; border-radius: 6px!important; } .simplehl5_EZCRBH { display: inline!important;font-family:inherit!important; font-style:inherit!important; font-variant:inherit!important; font-weight:inherit!important; border-color: transparent !important; color: #000000!important; background-color: rgba(96,255,255,0.7)!important; font-size: inherit!important; -webkit-transition-property: color, background-color, -webkit-box-shadow; -webkit-transition-duration: 0.5s, 0.5s, 0.5s; -webkit-transition-timing-function: linear, linear, linear; padding: 0.2em!important; -webkit-box-shadow: rgba(0,0,0,0.42) 3px 3px 4px!important; border-radius: 6px!important; } .simplehl6_EZCRBH { display: inline!important;font-family:inherit!important; font-style:inherit!important; font-variant:inherit!important; font-weight:inherit!important; border-color: transparent !important; color: #000000!important; background-color: rgba(255,96,255,0.7)!important; font-size: inherit!important; -webkit-transition-property: color, background-color, -webkit-box-shadow; -webkit-transition-duration: 0.5s, 0.5s, 0.5s; -webkit-transition-timing-function: linear, linear, linear; padding: 0.2em!important; -webkit-box-shadow: rgba(0,0,0,0.42) 3px 3px 4px!important; border-radius: 6px!important; } .simplehl7_EZCRBH { display: inline!important;font-family:inherit!important; font-style:inherit!important; font-variant:inherit!important; font-weight:inherit!important; border-color: transparent !important; color: #FFFFFF!important; background-color: rgba(0,0,0,0.7)!important; font-size: inherit!important; -webkit-transition-property: color, background-color, -webkit-box-shadow; -webkit-transition-duration: 0.5s, 0.5s, 0.5s; -webkit-transition-timing-function: linear, linear, linear; padding: 0.2em!important; -webkit-box-shadow: rgba(0,0,0,0.42) 3px 3px 4px!important; border-radius: 6px!important; } </style><style id="simplehl_flashstyle_FVDLAH">@-webkit-keyframes flash {         0% {             opacity: 1;         }         100% {             opacity: 0;         }}</style></head>
+<body class="home-template default-bg">
+
+
+    <nav class="navbar navbar-ghost" role="navigation">
+	<div class="container-fluid">
+
+		<!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#global-navbar">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="./admin_files/admin.html"><img width="50" src="./admin_files/logo.png"></a>
+	    </div>
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="global-navbar">
+	    	<ul class="nav navbar-nav">
+		        <li><a href="http://docs.ghostchina.com/zh/" target="_blank">中文文档</a></li>
+		        <li><a href="http://www.ghostchina.com/download/">下载</a></li>
+		        <li><a href="http://www.ghostchina.com/about/">关于</a></li>
+			</ul>
+			<p class="navbar-text qq">QQ群:309172035</p>
+	    </div>
+
+
+
+	</div>
+</nav>
+
+
+    
+
+
+<header id="logo" class="container">
+	<div class="row">
+		<div class="col-lg-8 col-lg-push-2">
+		    
+			    <h1 class="blog-title">
+			    	<a href="./admin_files/admin.html">Publish your ideas</a>
+			    </h1>
+			    <h2 class="blog-desc">
+			    	<a href="./admin_files/admin.html">Ghost is a simple, powerful publishing platform that allows you to share your story with the world.</a>
+			    </h2>
+		    
+		    <div class="social">
+		    <a href="http://weibo.com/ghostchinacom" class="navbar-link" title="Ghost中文网官方微博" target="_blank"><i class="fa fa-weibo fa-3x"></i></a>
+		    </div>
+		</div>
+    </div>
+</header>
+
+
+
+<main class="container" role="main">
+    <div class="row">
+        <div class="col-sm-8 col-sm-push-1">
+            
+            
+            <article class="panel post tag-ghost-post tag-shen-du-wan-zhuan-ghost" data-scroll-reveal="enter bottom"> 
+                <header class="panel-heading post-header">
+                    <h2 class="post-title">
+                        <a href="http://www.ghostchina.com/inside-ghost-0-4-2-remove-fixtures/">深度玩转 Ghost 0.4.2 之：删除默认导入的数据</a>
+                    </h2>
+                </header>
+                
+                <section class="panel-footer post-meta">
+                    <div class="post-tags">
+                        
+                            <i class="fa fa-tags"></i>
+                            
+                            <a href="http://www.ghostchina.com/tag/ghost-post/">Ghost</a>、 
+                            
+                            <a href="http://www.ghostchina.com/tag/shen-du-wan-zhuan-ghost/">深度玩转 Ghost</a> 
+                            
+                        
+                    </div>
+                </section>
+            </article>
+            
+            <article class="panel post tag-ghost-post tag-zhu-ti tag-shen-du-wan-zhuan-ghost" data-scroll-reveal="enter bottom"> 
+                <header class="panel-heading post-header">
+                    <h2 class="post-title">
+                        <a href="http://www.ghostchina.com/inside-ghost-0-4-2-fix-customize-error-page/">深度玩转 Ghost 0.4.2 之：使用自定义的错误页面</a>
+                    </h2>
+                </header>
+                
+                <section class="panel-footer post-meta">
+                    <div class="post-tags">
+                        
+                            <i class="fa fa-tags"></i>
+                            
+                            <a href="http://www.ghostchina.com/tag/ghost-post/">Ghost</a>、 
+                            
+                            <a href="http://www.ghostchina.com/tag/zhu-ti/">主题</a>、 
+                            
+                            <a href="http://www.ghostchina.com/tag/shen-du-wan-zhuan-ghost/">深度玩转 Ghost</a> 
+                            
+                        
+                    </div>
+                </section>
+            </article>
+            
+            <article class="panel post tag-ghost-post tag-google-fonts" data-scroll-reveal="enter bottom"> 
+                <header class="panel-heading post-header">
+                    <h2 class="post-title">
+                        <a href="http://www.ghostchina.com/remove-google-fonts-save-ghost/">远离被“墙”的 Google Fonts ，拯救 Ghost</a>
+                    </h2>
+                </header>
+                
+                <section class="panel-footer post-meta">
+                    <div class="post-tags">
+                        
+                            <i class="fa fa-tags"></i>
+                            
+                            <a href="http://www.ghostchina.com/tag/ghost-post/">Ghost</a>、 
+                            
+                            <a href="http://www.ghostchina.com/tag/google-fonts/">Google Fonts</a> 
+                            
+                        
+                    </div>
+                </section>
+            </article>
+            
+            <article class="panel post tag-node-js" data-scroll-reveal="enter bottom"> 
+                <header class="panel-heading post-header">
+                    <h2 class="post-title">
+                        <a href="http://www.ghostchina.com/module-exports-and-exports-in-node-js/">Node.js 系列之 —— module.exports 与 exports</a>
+                    </h2>
+                </header>
+                
+                <section class="panel-footer post-meta">
+                    <div class="post-tags">
+                        
+                            <i class="fa fa-tags"></i>
+                            
+                            <a href="http://www.ghostchina.com/tag/node-js/">Node.js</a> 
+                            
+                        
+                    </div>
+                </section>
+            </article>
+            
+            <article class="panel post tag-promise tag-javascript" data-scroll-reveal="enter bottom"> 
+                <header class="panel-heading post-header">
+                    <h2 class="post-title">
+                        <a href="http://www.ghostchina.com/revelation-of-javascript-promise/">JavaScript Promise 启示录</a>
+                    </h2>
+                </header>
+                
+                <section class="panel-footer post-meta">
+                    <div class="post-tags">
+                        
+                            <i class="fa fa-tags"></i>
+                            
+                            <a href="http://www.ghostchina.com/tag/promise/">Promise</a>、 
+                            
+                            <a href="http://www.ghostchina.com/tag/javascript/">JavaScript</a> 
+                            
+                        
+                    </div>
+                </section>
+            </article>
+            
+            <article class="panel post tag-ghost-post tag-nginx tag-apache" data-scroll-reveal="enter bottom"> 
+                <header class="panel-heading post-header">
+                    <h2 class="post-title">
+                        <a href="http://www.ghostchina.com/how-to-install-ghost-in-a-subdirectory/">在子目录下面安装 Ghost</a>
+                    </h2>
+                </header>
+                
+                <section class="panel-footer post-meta">
+                    <div class="post-tags">
+                        
+                            <i class="fa fa-tags"></i>
+                            
+                            <a href="http://www.ghostchina.com/tag/ghost-post/">Ghost</a>、 
+                            
+                            <a href="http://www.ghostchina.com/tag/nginx/">Nginx</a>、 
+                            
+                            <a href="http://www.ghostchina.com/tag/apache/">Apache</a> 
+                            
+                        
+                    </div>
+                </section>
+            </article>
+            
+            <article class="panel post tag-ghost-post tag-bae tag-qi-niu" data-scroll-reveal="enter bottom"> 
+                <header class="panel-heading post-header">
+                    <h2 class="post-title">
+                        <a href="http://www.ghostchina.com/deploy-ghost-in-bae-with-qiniu-cloud/">Ghost+BAE+七牛云存储部署教程</a>
+                    </h2>
+                </header>
+                
+                <section class="panel-footer post-meta">
+                    <div class="post-tags">
+                        
+                            <i class="fa fa-tags"></i>
+                            
+                            <a href="http://www.ghostchina.com/tag/ghost-post/">Ghost</a>、 
+                            
+                            <a href="http://www.ghostchina.com/tag/bae/">BAE</a>、 
+                            
+                            <a href="http://www.ghostchina.com/tag/qi-niu/">七牛</a> 
+                            
+                        
+                    </div>
+                </section>
+            </article>
+            
+            <article class="panel post tag-javascript" data-scroll-reveal="enter bottom"> 
+                <header class="panel-heading post-header">
+                    <h2 class="post-title">
+                        <a href="http://www.ghostchina.com/common-javascript-gotchas/">JavaScript 的常见“陷阱”</a>
+                    </h2>
+                </header>
+                
+                <section class="panel-footer post-meta">
+                    <div class="post-tags">
+                        
+                            <i class="fa fa-tags"></i>
+                            
+                            <a href="http://www.ghostchina.com/tag/javascript/">JavaScript</a> 
+                            
+                        
+                    </div>
+                </section>
+            </article>
+            
+            <article class="panel post tag-ji-cheng tag-javascript tag-yuan-xing" data-scroll-reveal="enter bottom"> 
+                <header class="panel-heading post-header">
+                    <h2 class="post-title">
+                        <a href="http://www.ghostchina.com/prototypes-and-inheritance-in-javascript/">JavaScript中的原型和继承</a>
+                    </h2>
+                </header>
+                
+                <section class="panel-footer post-meta">
+                    <div class="post-tags">
+                        
+                            <i class="fa fa-tags"></i>
+                            
+                            <a href="http://www.ghostchina.com/tag/ji-cheng/">继承</a>、 
+                            
+                            <a href="http://www.ghostchina.com/tag/javascript/">JavaScript</a>、 
+                            
+                            <a href="http://www.ghostchina.com/tag/yuan-xing/">原型</a> 
+                            
+                        
+                    </div>
+                </section>
+            </article>
+            
+            <article class="panel post tag-ghost-post tag-npm" data-scroll-reveal="enter bottom"> 
+                <header class="panel-heading post-header">
+                    <h2 class="post-title">
+                        <a href="http://www.ghostchina.com/using-ghost-as-an-npm-module/">将 Ghost 作为 NPM 模块使用</a>
+                    </h2>
+                </header>
+                
+                <section class="panel-footer post-meta">
+                    <div class="post-tags">
+                        
+                            <i class="fa fa-tags"></i>
+                            
+                            <a href="http://www.ghostchina.com/tag/ghost-post/">Ghost</a>、 
+                            
+                            <a href="http://www.ghostchina.com/tag/npm/">NPM</a> 
+                            
+                        
+                    </div>
+                </section>
+            </article>
+            
+        </div>
+        <div class="col-sm-2 col-sm-push-1">
+            <div class="list-group tag-sidebar">
+    <a href="http://www.ghostchina.com/tag/ghost-post/" class="list-group-item"><i class="fa fa-tag"></i> Ghost</a>
+    <a href="http://www.ghostchina.com/tag/node-js/" class="list-group-item"><i class="fa fa-tag"></i> Node.js</a>
+    <a href="http://www.ghostchina.com/tag/ubuntu/" class="list-group-item"><i class="fa fa-tag"></i> Ubuntu</a>
+    <a href="http://www.ghostchina.com/tag/a-li-yun-fu-wu-qi/" class="list-group-item"><i class="fa fa-tag"></i> 阿里云</a>
+    <a href="http://www.ghostchina.com/tag/zhu-ti/" class="list-group-item"><i class="fa fa-tag"></i> 主题</a>
+</div>
+        </div>
+    </div>
+
+    
+    
+<nav class="page-pagination">
+	<ul class="pagination">
+
+		
+	    <li class="disabled">
+	    	<span class="newer-posts"><i class="fa fa-angle-left"></i></span>
+    	</li>
+	    
+
+	    <li>
+	   	<span class="page-number">1 / 4</span>
+	   	</li>
+
+		
+	    <li>
+	        <a class="older-posts" href="http://www.ghostchina.com/page/2/"><i class="fa fa-angle-right"></i></a>
+	    </li>
+        
+	    
+	</ul>
+</nav>
+</main>
+
+    <footer class="container">
+	<div class="row">
+	    <div id="footer-content">
+	    	<div class="col-md-6">
+	    		<h3>合作站点：</h3>
+				
+				<dl>
+					<dd>
+						<a href="http://www.bootcss.com/" title="Bootstrap中文网" target="_blank">Bootstrap 中文网</a>
+					</dd>
+					<dd>
+						<a href="http://www.gruntjs.net/" title="Grunt中文网" target="_blank">Grunt 中文网</a>
+					</dd>
+					<dd>
+						<a href="http://www.golaravel.com/" title="Laravel 中文网" target="_blank">Laravel 中文网</a>
+					</dd>
+
+					<dd>
+						<a href="http://www.phpcomposer.com/" title="Composer 中文网" target="_blank">Composer 中文网</a>
+					</dd>
+
+					<dd>
+						<a href="http://mei.me/" title="MEI.ME" target="_blank">MEI</a>
+					</dd>
+				</dl>
+	    	</div>
+
+			<div class="col-md-6">
+				<h3>联系方式：</h3>
+
+				<p class="footer-phone"><i class="fa fa-qq"></i> 124369963</p>
+				<p class="footer-email"><i class="fa fa-envelope"></i> admin@bootcss.com</p>
+			</div>
+	    </div>
+
+	    <div class="col-xs-12" id="social-icons">
+		    <a class="icon-gplus" href="http://weibo.com/ghostchinacom" target="_blank"><i class="fa fa-weibo fa-2x"></i>新浪微博</a>
+		</div>
+
+	    <div class="col-xs-12" id="copyrights">
+	         <section class="copyright">All content copyright <a href="./admin_files/admin.html" target="_blank">Ghost 中文网</a> © 2014 • All rights reserved.</section>
+	         <section class="poweredby">Proudly published with <a href="http://ghost.org/" target="_blank">Ghost</a> | <a href="http://www.qiniu.com/" target="_blank">七牛云存储</a>为本站点赞助 CDN 加速</section>
+	         <section class="beian"><a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备11008151号</a> | 京公网安备11010802014853</section>
+	    </div>
+    </div>
+</footer>
+
+    
+    
+
+    <script src="./admin_files/jquery.min.js"></script>
+    <script src="./admin_files/bootstrap.min.js"></script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai.min.css" rel="stylesheet">
+    <script src="./admin_files/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script type="text/javascript" src="./admin_files/index.js"></script>
+
+    <script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F6338835ad35c6d950a554fdedb598e48' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./admin_files/h.js" type="text/javascript"></script>
+
+
+
+
+</body></html>
