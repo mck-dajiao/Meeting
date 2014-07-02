@@ -1,0 +1,29 @@
+.btn-lg {
+  font-size: 50px;
+}
+
+.btn-login{
+	background-color:green;
+	border-color:green	
+}
+
+@media (min-width:768px){
+.user{position:absolute;right:15px;top:0;color:white}}
+
+/* BookingRoom.html begin*/
+.bookingRoom{
+	background-color:white;
+    padding-top: 50px;
+}
+
+.pagination {
+     margin: 0;
+     padding: 0;
+}
+
+.brResult {
+	background-color:white;
+}
+/* BookingRoom.html begin*/
+
+

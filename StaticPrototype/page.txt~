@@ -58,3 +58,8 @@ header，footer，sidebar
 @TODO
 1 login.html:改变登陆变化颜色
 2 输入限制设计
+3 jsp中文乱码
+4 输入验证（js端和servlet端）
+*5 没有对登陆错误类型进行细分
+6 新注册用户用户名重复检验
+7 新注册用户部门验证

@@ -1,0 +1,19 @@
+﻿body {
+    font-family:微软雅黑,Arial;
+    margin:0 auto;
+}
+
+form fieldset div label:first-child {
+    width:200px;
+    display:inline-block;
+    text-align:right;
+}
+
+input[type="text"], input[type="password"], input[type="date"], select {
+    width:200px;
+}
+
+button {
+    padding:5px 10px;
+    cursor:pointer;
+}

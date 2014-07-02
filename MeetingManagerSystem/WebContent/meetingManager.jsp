@@ -1,32 +1,20 @@
-﻿<!DOCTYPE html>
-<html lang="zh-cn">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-    
-    <title>会议管理系统</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="TM就是会议管理系统啊">
-    <meta name="keywords" content="会议管理系统">
-    <meta name="author" content="dajiao，dowson">
-
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="MobileOptimized" content="320" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  
-
-	<link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="./styles/dajiao.css" rel="stylesheet" type="text/css"/>
-    <link href="./styles/main.min.css" rel="stylesheet" type="text/css"/>
-
-	<!--[if (gte IE 6)&(lte IE 8)]>
-	<script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js"></script>
-	<![endif]-->
-
+<%@include file="header.jsp" %>
 </head>
-<body class="home-template default-bg">
+
+<%
+	String logout = (String)request.getParameter("logout");
+	if(logout!=null && logout.equals("1")){
+		session.removeAttribute("person");
+	}
+	
+%>
+
+<body class="home-template default-bg" onload="homeLoad();" >
 
     <nav class="navbar navbar-ghost navbar-fixed-top" role="navigation">
 	<div class="container-fluid">
@@ -53,8 +41,6 @@
 			
 	    </div>
 
-
-
 	</div>
 </nav>
 
@@ -74,9 +60,13 @@
 				<p>
 					<a class="btn btn-lg btn-primary btn-shadow bs3-link " role="button" data-toggle="modal" href="#register" >咦，我还没有账号</a>
 				</p>
+				<p>
+					<a href="meetingManager.jsp?logout=1" ></a>
+				</p>
 		</div>
     </div>
 </header>
+
  <!-- 登录对话框开始 -->
     <div id="login" class="modal fade">
         <div class="modal-dialog">
@@ -86,23 +76,23 @@
                     <h4 class="modal-title text-center">用户登录</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" method="post" action="LoginServlet">
                         <div class="form-group">
                             <label for="username" class="control-label col-md-2">用户名</label>
                             <div class="col-md-10">
-                                <input type="text" id="username" class="form-control" />
+                                <input type="text" id="username" name="username" class="form-control" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="password" class="control-label col-md-2">密码</label>
                             <div class="col-md-10">
-                                <input type="password" id="password" class="form-control" />
+                                <input type="password" id="password" name="password" class="form-control" />
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-offset-5">
-                                <button type="Submit" class="btn btn-default" data-dismiss="modal">登录</button>
-                                <button type="Cancel" class="btn btn-default" data-dismiss="modal">取消</button>
+                                <button type="submit" class="btn btn-default" >登录</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
                             </div>
                         </div>
                     </form>
@@ -126,40 +116,41 @@
                     <h4 class="modal-title text-center">用户注册</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" method="post" action="RegisterServlet">
                         <div class="form-group">
                             <label for="username" class="control-label col-md-2">用户名</label>
                             <div class="col-md-10">
-                                <input type="text" id="username" class="form-control" />
+                                <input type="text"  name="accountRe" class="form-control" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="password" class="control-label col-md-2">密码</label>
                             <div class="col-md-10">
-                                <input type="password" id="password" class="form-control" />
+                                <input type="password" name="passwordRe" class="form-control" />
                             </div>
                         </div>
 						<div class="form-group">
                             <label for="password" class="control-label col-md-2">真实姓名</label>
                             <div class="col-md-10">
-                                <input type="text" id="realname" class="form-control" />
+                                <input type="text" name="nameRe" class="form-control" />
                             </div>
                         </div>
 						<div class="form-group">
                             <label for="password" class="control-label col-md-2">部门</label>
                             <div class="col-md-10">
-                                <input type="text" id="department" class="form-control" />
+                                <input type="text" name="departmentRe" class="form-control" />
                             </div>
                         </div>
 						<div class="form-group">
                             <label for="password" class="control-label col-md-2">暗号</label>
                             <div class="col-md-10">
-                                <input type="text" id="anhao" class="form-control" />
+                                <input type="text" name="anhaoRe" class="form-control" />
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="text-center">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">注册</button>
+                                <button type="submit" class="btn btn-default" >注册</button>
+                                <button type="button" class="btn btn-default" >返回</button>
                             </div>
                         </div>
                     </form>
@@ -170,28 +161,7 @@
     </div>
     <!-- 注册对话框结束 -->
 
-
-<footer class="container">
-	<div class="row">
-	    <div class="col-xs-12" id="social-icons">
-		</div>
-
-	    <div class="col-xs-12" id="copyrights">
-	         <section class="copyright">All content copyright <a href="https://github.com/mck-dajiao">大脚的Github</a> &copy; 2014 &bull; All rights reserved.</section>
-	         <section class="poweredby">Proudly published with <a href="https://github.com/mck-dajiao">mck-dajiao</a></section>
-	    </div>
-    </div>
-</footer>
-
-    <script src="./scripts/jquery-1.11.0.min.js"></script>
-    <script src="./bootstrap/js/bootstrap.min.js"></script>
-	<script src="./scripts/bootbox.min.js"></script>
-    <script type="text/javascript">
-        function showAlert() {
-            bootbox.alert("你TM还没登陆呢！！！！");
-			bootbox.center();
-        }
-    </script>
+<%@include file="footer.html" %>
 
 </body>
 </html>

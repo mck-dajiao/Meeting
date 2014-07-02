@@ -1,0 +1,35 @@
+﻿table {
+    border:1px solid black;
+    border-collapse:collapse;
+    width:100%;
+}
+
+table th {
+    border:1px solid black;
+    padding:10px;
+    font-weight:bold;
+    text-align:center;
+    background-color:#0094ff
+}
+
+table td {
+    border:1px solid black;
+    padding:10px;
+}
+
+a {
+    color:darkgray;
+    text-decoration:none;
+}
+
+a:visited {
+        color:darkgray;
+    }
+
+a:hover {
+    color:red;
+}
+
+table tr td:last-child {
+    text-align:center;
+}

@@ -1,0 +1,29 @@
+登录
+select count(*) from user
+where acount='12345678' and password='12345678';
+
+修改用户id
+use test;
+update User
+set name='曾文'
+where userid=3;
+
+注册用户
+use test;
+insert into User(Number,Password,Name) values (5656,'326','分解掉');
+
+
+删除用户
+use test;
+delete from user where userid=4;
+
+按时间查询会议
+select * from meeting
+where starttime='2014-07-01 00:00:00' and endtime='2014-07-01 00:00:01';
+
+按会议室id搜索
+select * from meetingroom
+where meetingroomid=1;
+
+搜索所有通知
+select * from notification;
