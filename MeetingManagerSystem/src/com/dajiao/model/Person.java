@@ -2,27 +2,27 @@ package com.dajiao.model;
 
 public class Person {
 	
-	private String username;
+	protected String account;
 	
 	public Person(){
 	}
 	
-	public Person(String username){
-		this.username = username;
+	public Person(String account){
+		this.account = account;
 	}
 
 	/**
 	 * @return the name
 	 */
-	public String getUsername() {
-		return username;
+	public String getaccount() {
+		return account;
 	}
 
 	/**
 	 * @param name the name to set
 	 */
-	public void setUsername(String username) {
-		this.username = username;
+	public void setaccount(String account) {
+		this.account = account;
 	}
 
 }

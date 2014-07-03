@@ -2,8 +2,7 @@ package com.dajiao.model;
 
 public class User extends Person {
 	
-	private String id;
-	private String account;
+	private int id;
 	private String name;
 	private String anhao;
 	private String department;
@@ -18,8 +17,7 @@ public class User extends Person {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public User(String account, String name, String department, String status){
-		this.account = account;
+	public User(String name, String department, String status){
 		this.name = name;
 		this.department = department;
 		this.status = status;
@@ -28,14 +26,14 @@ public class User extends Person {
 	/**
 	 * @return the id
 	 */
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

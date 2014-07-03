@@ -7,42 +7,23 @@
 </head>
 
 <%
-	String logout = (String)request.getParameter("logout");
+	String logout = (String)request.getAttribute("logout");
 	if(logout!=null && logout.equals("1")){
 		session.removeAttribute("person");
 	}
 	
+	int fail = 0;
+	
+	String failStr = (String)request.getAttribute("fail");
+
+	if(failStr != null && failStr.equals("1")){
+		System.out.println(failStr);
+		fail = 1;
+	}
 %>
 
 <body class="home-template default-bg" onload="homeLoad();" >
-
-    <nav class="navbar navbar-ghost navbar-fixed-top" role="navigation">
-	<div class="container-fluid">
-		<!-- Brand and toggle get grouped for better mobile display . span is for line in button.-->
-	    <div class="navbar-header">
-	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#global-navbar">
-	        <span class="sr-only">Toggle navigation</span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	      </button>
-	    </div>
-
-
-	    <!-- Collect the nav links, forms, and other content for toggling -->
-	    <div class="collapse navbar-collapse" id="global-navbar">
-	    	<ul class="nav navbar-nav">
-		        <li><a href="#" onclick="showAlert();" >查看通知</a></li>
-		        <li><a href="#" onclick="showAlert();" >预约会议室</a></li>
-		        <li><a href="#" onclick="showAlert();" >我的会议</a></li>
-		        <li><a href="#" onclick="showAlert();" >我的预订</a></li>
-				<li><a href="#" onclick="showAlert();" >设备申请</a></li>
-		        <li><a href="#login" data-toggle="modal" >不要点我</a></li>
-			</ul>
-			
-	    </div>
-
-	</div>
-</nav>
+<%@include file="navbar.html" %>
 
 <header id="logo" class="container">
 	<div class="row">
@@ -162,6 +143,12 @@
     <!-- 注册对话框结束 -->
 
 <%@include file="footer.html" %>
+<script>
+	var fail = '<%=fail%>';
+	if(fail=='1'){
+		bootbox.alert("用户名或密码错误！");
+	}
+</script>
 
 </body>
 </html>

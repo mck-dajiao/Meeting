@@ -1,9 +1,6 @@
 package com.dajiao.servlet;
 
 import java.io.IOException;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,8 +8,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.dajiao.dao.NotificationDAO;
 import com.dajiao.model.Person;
+import com.dajiao.model.User;
 import com.dajiao.service.LoginService;
+import com.dajiao.service.NotificationService;
 
 /**
  * Servlet implementation class LoginServlet
@@ -50,12 +50,24 @@ public class LoginServlet extends HttpServlet {
 		Person person = null;
 		
 		if((person = LoginService.validate(username, password)) != null){
-			request.setAttribute("person", person);
+			// load notifications
+			// request.getSession().setAttribute("notifyList", NotificationService.getInviteMessage(username));
+			System.out.println("useraccount: " + ((User)person).getaccount());
+			request.setAttribute("notifyList", NotificationService.getInviteMessage(((User)person).getaccount()));
+			request.getSession().setAttribute("person", person);
+			request.setAttribute("notinum", "");
 			request.getRequestDispatcher("./myNotification.jsp").forward(request, response);
 		    System.out.println("admin login success!");
-		}else if(username != null || password != null){
-			response.sendRedirect("./meetingManager.jsp?fail=1");
-		}	
+		}else if(username != null && password != null){
+			request.setAttribute("fail", "1");
+			request.getRequestDispatcher("./meetingManager.jsp").forward(request, response);
+		    System.out.println("admin login fail");
+			// response.sendRedirect("./meetingManager.jsp?fail=1");
+		}/*
+		else {
+			// refresh page 
+			request.getRequestDispatcher("./myNotificaiton.jsp").forward(request, response);
+		}*/
 		
 	}
 

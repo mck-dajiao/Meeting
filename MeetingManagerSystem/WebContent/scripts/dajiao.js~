@@ -1,3 +1,8 @@
+//*****test use*********
+function testload(){
+	
+}
+
 //*****global function*********
 function badgeDispose(event){
 	var element = event.srcElement.getElementsByTagName('span')[0];
@@ -6,15 +11,6 @@ function badgeDispose(event){
 
 function navload(index){
 	document.getElementsByTagName('li')[index].setAttribute('class', 'active');
-}
-
-function addNotify(num){
-	var element = document.getElementById('notiBadge');
-	element.innerText=num;
-}
-
-function titleLoad(title){
-	document.getElementById('page-title').innerText=title;
 }
 
 
@@ -33,9 +29,11 @@ function getUrlParam(name){
 } 
 
 function homeLoad(){
+	/*
 	if(getUrlParam('fail') == '1'){
 		bootbox.alert("用户名或密码错误！");
 	}
+	*/
 	
 	if(getUrlParam('register') == '1'){
 		bootbox.alert("注册成功，等待管理员审批");
@@ -51,6 +49,7 @@ function homeLoad(){
 	var elem = document.getElementsByTagName('a')[5];
 	elem.setAttribute('href', '#login');
 	elem.setAttribute('data-toggle', 'modal');
+	elem.innerText='不要点我';
 	
 }
 
@@ -58,7 +57,14 @@ function homeLoad(){
 
 
 //****myNotification.jsp***********
+function addNotify(num){
+	var notiBadge = document.getElementById("notiBadge");
+	notiBadge.innerText=num;
+}
 
-
+function notiPage(){
+	var element = document.getElementById('page-title');
+	element.innerText = '查看通知';
+}
 
 //****end of myNotification.jsp****

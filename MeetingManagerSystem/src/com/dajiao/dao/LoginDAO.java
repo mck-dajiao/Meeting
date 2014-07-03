@@ -39,11 +39,11 @@ public class LoginDAO {
 			try {
 				PreparedStatement pSt = null;
 				String sql = "select * from user where account='" + account + 
-						"' and password='" + password + "'";
+						"' and password='" + password + "' and status='approvaled'";
 				pSt = conn.prepareStatement(sql);
 				ResultSet rs = pSt.executeQuery(sql);
 				
-				if(rs.next()==true && rs.getString(6).equals("approvaled")){
+				if(rs.next()==true){
 					System.out.println(rs.getString(6));
 					User user = new User(account);
 					user.setname(rs.getString(4));

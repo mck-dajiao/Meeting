@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class RegisterServlet
+ * Servlet implementation class NotificationServlet
  */
-@WebServlet("/RegisterServlet")
-public class RegisterServlet extends HttpServlet {
+@WebServlet("/NotificationServlet")
+public class NotificationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RegisterServlet() {
+    public NotificationServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,19 +35,7 @@ public class RegisterServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		String username = (String)request.getParameter("usernameRe");
-		String password = (String)request.getParameter("passwordRe");
-		String realname = (String)request.getParameter("realnameRe");
-		String department = (String)request.getParameter("departmentRe");
-		String anhao = (String)request.getParameter("anhaoRe");
-		
-		System.out.println("username : " + username +
-						"password : " + password +
-						"realname : " + realname +
-						"department : " + department +
-						"anhao : " + anhao);
-		
+		response.getOutputStream().print(arg0);
 	}
 
 }

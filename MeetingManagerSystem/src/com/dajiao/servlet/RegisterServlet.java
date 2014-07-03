@@ -52,7 +52,8 @@ public class RegisterServlet extends HttpServlet {
 						"department : " + department +
 						"anhao : " + anhao);
 		
-		User user  = new User(account, name, department, "unapproval");
+		User user  = new User(name, department, "unapproval");
+		user.setaccount(account);
 		user.setAnhao(anhao);
 		
 		if(RegisterService.register(user, password)){

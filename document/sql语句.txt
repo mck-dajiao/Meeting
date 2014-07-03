@@ -1,29 +1,129 @@
-登录
-select count(*) from user
-where acount='12345678' and password='12345678';
+#普通用户界面
+##查看通知
 
-修改用户id
-use test;
-update User
-set name='曾文'
-where userid=3;
+###通知数量
+   select count(*) from notification
 
-注册用户
-use test;
-insert into User(Number,Password,Name) values (5656,'326','分解掉');
+###邀请数量
+   select count(*) from notification where type = '邀请' and useraccount = '12345678'
+###邀请内容   
+   select detail from notification where type = '邀请'
+####同意
+   insert into meeting(topic,meetingroom,starttime,endtime,record,status)
+ (
+   
+	select topic,meetingroom,starttime,endtime,detail,'未参加' from notification
+	
+	where type = '邀请' 
+	
+	/*还有选中的那一项*/
+	
+	) ;
+
+   delete from notification 
+where type = '邀请' and notificationid = 1;
+    
+	/*选中的那一项的notificationid*/
+####拒绝
+   delete from notification
+where type = '邀请' and notificationid = 1;
+    
+	/*选中的那一项的notificationid*/
+####忽略
+   delete from notification
+where type = '邀请' and notificationid = 1;
+    
+	/*选中的那一项的notificationid*/
 
 
-删除用户
-use test;
-delete from user where userid=4;
+###变更数量
+   select count(*) from notification where type = '邀请'
+###变更内容   
+   select detail from notification where type = '邀请'
 
-按时间查询会议
-select * from meeting
-where starttime='2014-07-01 00:00:00' and endtime='2014-07-01 00:00:01';
+###总结数量
+   select count(*) from notification where type = '邀请'
+###总结内容   
+   select detail from notification where type = '邀请'
+###查看
+   select detail from summary 
+where summaryid = 1
 
-按会议室id搜索
-select * from meetingroom
-where meetingroomid=1;
 
-搜索所有通知
-select * from notification;
+##预约会议室
+###查询
+  select name,type from meetingroom
+  
+where name not in
+
+  (
+   
+    select meetingroom from meeting
+   
+      where (starttime < '1997-10-2 00:00:00' and starttime > '1997-10-2 00:00:00')
+	
+       or (endtime < '1997-10-2 00:00:00' and endtime > '1997-10-2 00:00:00')
+
+  )
+
+
+##我的会议
+  select * from meeting
+
+##我的预定
+  select * from meeting
+  where bookpeople = 'dowson'
+
+
+
+
+#管理员用户界面
+
+##注册审批
+###通过键
+   update user 
+set status = 'approvaled'
+where account = '12345678' and password = '12345678'
+###拒绝键
+   update user 
+set status = 'unapprovaled'
+where account = '12345678' and password = '12345678'
+
+##用户管理
+###查询键
+   select * from user
+where name = 'dowson' and account = '12345678' and department = '学习部'	
+
+##部门管理
+###修改
+   update department
+ set departmentid = 1000
+where departmentname = '学习部';
+###删除
+   delete from department 
+where departmentname = '学习部';
+
+##会议室管理
+###查询
+   select * from meetingroom where num=1;
+###修改
+   update meetingroom 
+set total = 1200 
+where num = 204
+###删除
+   delete from meetingroom where num = 204
+
+##设备管理
+###归还
+   update borrow 
+set status = '已还'
+where borrowid = 1
+###借出设备
+   use test;
+insert into borrow(anum,bnum,cnum,borrowname,borrowtime,status) values (45,56,78,'dajiao','2013/12/11','未还')
+   
+
+@TODO
+#按时间查询设备借出情况
+#通知页面中，按了总结，对应项会添加到我的会议中，但是我的会议中会有一个record，这跟notification矛盾了
+#缩小时，排版会有问题
