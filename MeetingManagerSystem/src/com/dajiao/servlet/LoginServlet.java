@@ -51,23 +51,17 @@ public class LoginServlet extends HttpServlet {
 		
 		if((person = LoginService.validate(username, password)) != null){
 			// load notifications
-			// request.getSession().setAttribute("notifyList", NotificationService.getInviteMessage(username));
-			System.out.println("useraccount: " + ((User)person).getaccount());
-			request.setAttribute("notifyList", NotificationService.getInviteMessage(((User)person).getaccount()));
 			request.getSession().setAttribute("person", person);
-			request.setAttribute("notinum", "");
-			request.getRequestDispatcher("./myNotification.jsp").forward(request, response);
+			request.getRequestDispatcher("NotificationServlet").forward(request, response);
 		    System.out.println("admin login success!");
 		}else if(username != null && password != null){
 			request.setAttribute("fail", "1");
 			request.getRequestDispatcher("./meetingManager.jsp").forward(request, response);
 		    System.out.println("admin login fail");
-			// response.sendRedirect("./meetingManager.jsp?fail=1");
-		}/*
-		else {
+		}else {
 			// refresh page 
-			request.getRequestDispatcher("./myNotificaiton.jsp").forward(request, response);
-		}*/
+			request.getRequestDispatcher("./meetingManager.jsp").forward(request, response);
+		}
 		
 	}
 

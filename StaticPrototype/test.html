@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-cn">
 <head>
     
@@ -6,219 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     
-    <title>Ghost 开源博客平台 | Ghost中文网</title>
+    <title>查看通知</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Ghost 是一套基于 Node.js 构建的开源博客平台（Open source blogging platform），具有易用的书写界面和体验，博客内容默认采用 Markdown 语法书写，目标是取代臃肿的 Wordpress。">
-    <meta name="keywords" content="Ghost,blog,Ghost博客,Ghost中文,Ghost中文文档">
-    <meta name="author" content="Ghost中文网">
+    <meta name="description" content="TM就是会议管理系统啊">
+    <meta name="keywords" content="会议管理系统">
+    <meta name="author" content="dajiao，dowson">
 
     <meta name="HandheldFriendly" content="True" />
     <meta name="MobileOptimized" content="320" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="/favicon.ico">
+  
 
-    
-    <link href="http://cdn.bootcss.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-    <link href="http://cdn.bootcss.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="./styles/main.min.css" />
+	<link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="./styles/dajiao.css" rel="stylesheet" type="text/css"/>
+    <link href="./styles/main.min.css" rel="stylesheet" type="text/css"/>
+	    <link href="http://cdn.bootcss.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
 	<!--[if (gte IE 6)&(lte IE 8)]>
 	<script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js"></script>
 	<![endif]-->
 
 </head>
-<body class="home-template default-bg">
+<body>
 
-    <nav class="navbar navbar-ghost navbar-fixed-top" role="navigation">
-	<div class="container-fluid">
+<input type="text" id="test" >
 
-		<!-- Brand and toggle get grouped for better mobile display -->
-	    <div class="navbar-header">
-	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#global-navbar">
-	        <span class="sr-only">Toggle navigation</span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	      </button>
-	      <a class="navbar-brand" href="/"><img width="50" src="./images/logo.png"></a>
-	    </div>
-
-	    <!-- Collect the nav links, forms, and other content for toggling -->
-	    <div class="collapse navbar-collapse" id="global-navbar">
-	    	<ul class="nav navbar-nav">
-		        <li><a href="http://docs.ghostchina.com/zh/">中文文档</a></li>
-		        <li><a href="/download/">下载</a></li>
-			</ul>
-			<p class="navbar-text qq">QQ群:309172035</p>
-	    </div>
-
-
-
-	</div>
-</nav>
-
-
-    
-
-
-<header id="logo" class="container">
-	<div class="row">
-		<div class="col-lg-8 col-lg-push-2">
-		    
-			    <h1 class="blog-title">
-			    	<a href="/">Publish your ideas</a>
-			    </h1>
-			    <h2 class="blog-desc">
-			    	<a href="/">Ghost is a simple, powerful publishing platform that allows you to share your story with the world.</a>
-			    </h2>
-		    
-		    <div class="social">
-		    <a href="http://weibo.com/ghostchinacom" class="navbar-link" title="Ghost中文网官方微博"><i class="fa fa-weibo fa-3x"></i></a>
-		    </div>
-		</div>
-    </div>
-</header>
-
-
-
-<main class="container" role="main">
-    <div class="row">
-        <div class="col-sm-8 col-sm-push-2">
-            
-            
-            <article class="panel post tag-ghost-post tag-zhu-ti" data-scroll-reveal="enter bottom"> 
-						<table class="table">
-            <caption>
-                <h3>所有会员资料</h3>
-            </caption>
-            <thead>
-                <tr>
-                    <th>编号</th>
-                    <th>姓名</th>
-                    <th>性别</th>
-                    <th>出生日期</th>
-                    <th>所在地</th>
-                    <th>兴趣领域</th>
-                    <th>操作</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>10001</td>
-                    <td>Jerry</td>
-                    <td>男</td>
-                    <td>1979-01-01</td>
-                    <td>北京</td>
-                    <td>Microsoft技术,软件工程</td>
-                    <td class="text-center">
-                        <a href="#" class="btn btn-default">编辑</a>
-                        <a href="#" class="btn btn-default" onclick="return confirm('确实要删除该会员资料吗？');">删除</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>10002</td>
-                    <td>Jam</td>
-                    <td>女</td>
-                    <td>1979-01-01</td>
-                    <td>北京</td>
-                    <td>Java技术，移动互联技术</td>
-                    <td class="text-center">
-                        <a href="#" class="btn btn-default">编辑</a>
-                        <a href="#" class="btn btn-default" onclick="return confirm('确实要删除该会员资料吗？');">删除</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>10003</td>
-                    <td>David</td>
-                    <td>男</td>
-                    <td>1980-01-01</td>
-                    <td>北京</td>
-                    <td>C/C++技术，移动互联技术</td>
-                    <td class="text-center">
-                        <a href="#" class="btn btn-default">编辑</a>
-                        <a href="#" class="btn btn-default" onclick="return confirm('确实要删除该会员资料吗？');">删除</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>10004</td>
-                    <td>Nancy</td>
-                    <td>男</td>
-                    <td>1983-01-01</td>
-                    <td>北京</td>
-                    <td>Microsoft技术</td>
-                    <td class="text-center">
-                        <a href="#" class="btn btn-default">编辑</a>
-                        <a href="#" class="btn btn-default" onclick="return confirm('确实要删除该会员资料吗？');">删除</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
-            </article>
-            
-           
-            
-        </div>
-
-        </div>
-    </div>
-
-    
-    
-</main>
-
-    <footer class="container">
-	<div class="row">
-	    <div id="footer-content">
-	    	<div class="col-md-6">
-	    		<h3>合作站点：</h3>
-				
-				<dl>
-					<dd>
-						<a href="http://www.bootcss.com" title="Bootstrap中文网">Bootstrap 中文网</a>
-					</dd>
-					<dd>
-						<a href="http://www.gruntjs.net" title="Grunt中文网">Grunt 中文网</a>
-					</dd>
-					<dd>
-						<a href="http://www.golaravel.com" title="Laravel 中文网">Laravel 中文网</a>
-					</dd>
-
-					<dd>
-						<a href="http://www.phpcomposer.com" title="Composer 中文网">Composer 中文网</a>
-					</dd>
-
-					<dd>
-						<a href="http://mei.me" title="MEI.ME">MEI</a>
-					</dd>
-				</dl>
-	    	</div>
-
-			<div class="col-md-6">
-				<h3>联系方式：</h3>
-
-				<p class="footer-phone"><i class="fa fa-qq"></i> 124369963</p>
-				<p class="footer-email"><i class="fa fa-envelope"></i> admin@bootcss.com</p>
-			</div>
-	    </div>
-
-	    <div class="col-xs-12" id="social-icons">
-		    <a class="icon-gplus" href="http://weibo.com/ghostchinacom"><i class="fa fa-weibo fa-2x"></i>新浪微博</a>
-		</div>
-
-	    <div class="col-xs-12" id="copyrights">
-	         <section class="copyright">All content copyright <a href="http://www.ghostchina.com/">Ghost 中文网</a> &copy; 2014 &bull; All rights reserved.</section>
-	         <section class="poweredby">Proudly published with <a href="http://ghost.org">Ghost</a></section>
-	         <section class="beian"><a href="http://www.miibeian.gov.cn/">京ICP备11008151号</a> | 京公网安备11010802014853</section>
-	    </div>
-    </div>
-</footer>
-
-    
-    
-
-    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-    <script src="http://cdn.bootcss.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 </body>
 </html>

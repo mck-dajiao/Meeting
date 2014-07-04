@@ -1,12 +1,8 @@
 //*****global function*********
-function badgeDispose(event){
-	var element = event.srcElement.getElementsByTagName('span')[0];
-	console.log(element.html());
-}
-
 function navload(index){
 	document.getElementsByTagName('li')[index].setAttribute('class', 'active');
 }
+
 
 function addNotify(num){
 	var element = document.getElementById('notiBadge');

@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" 
-    import="java.sql.Timestamp,java.util.List,com.dajiao.model.Notification"%>
+    import="java.sql.Timestamp,java.util.List,com.dajiao.model.Notification,com.dajiao.model.MeetingRecord"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <% 
-	String str=(String)request.getAttribute("notinum"); 
-	int notinum=Integer.parseInt(str);
+	Integer notinum=(Integer)request.getAttribute("notinum"); 
 %>
 
 </head>
@@ -21,7 +20,7 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h2 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="badgeDispose(event)" >
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" >
          <h3>会议邀请<span class="badge" id="inviteBadge"></span></h3>
         </a>
       </h2>
@@ -41,10 +40,10 @@
             </thead>
             <tbody>
              <%
-             List<Notification> list=(List<Notification>)request.getAttribute("notifyList");
-             if(list!=null){
-                	for(int i=0;i<list.size();i++){
-                    	Notification notify = (Notification)list.get(i);
+             List<Notification> notifyList=(List<Notification>)request.getAttribute("notifyList");
+             if(notifyList!=null){
+                	for(int i=0;i<notifyList.size();i++){
+                    	Notification notify = (Notification)notifyList.get(i);
              %>
                 <tr>
                     <td><%=notify.getTopic() %></td>
@@ -88,20 +87,24 @@
                 </tr>
             </thead>
             <tbody>
+             <%
+             List<Notification> changeList=(List<Notification>)request.getAttribute("changeList");
+             if(changeList!=null){
+                	for(int i=0;i<changeList.size();i++){
+                    	Notification notify = (Notification)changeList.get(i);
+             %>
                 <tr>
-                    <td>软件学院实习相关事项</td>
-                    <td>第一会议室</td>
-                    <td>12:00</td>
-                    <td>13:30</td>
-                    <td>院长到时要上厕所</td>
+                    <td><%=notify.getTopic() %></td>
+                    <td><%=notify.getMeetingRoom() %></td>
+                    <td><%=notify.getStarttime() %></td>
+                    <td><%=notify.getEndtime() %></td>
+                    <td><%=notify.getDetail() %></td>
                 </tr>
-				<tr>
-                    <td>毕业晚会</td>
-                    <td>第二会议室</td>
-                    <td>12:00</td>
-                    <td>13:30</td>
-                    <td>师兄要把妹，太忙了</td>
-                </tr>
+             <%
+               		} 
+                	
+             	}
+             %>
             </tbody>
         </table>
       </div>
@@ -126,20 +129,24 @@
                 </tr>
             </thead>
             <tbody>
+            <%
+           		List<MeetingRecord> summaryList=(List<MeetingRecord>)request.getAttribute("summaryList");
+            	if(summaryList!=null){
+               	for(int i=0;i<summaryList.size();i++){
+                   	MeetingRecord summary = (MeetingRecord)summaryList.get(i);
+            %>
                 <tr>
-                    <td>软件学院实习相关事项</td>
-                    <td>程序员</td>
+                    <td><%=summary.getTopic() %></td>
+                    <td><%=summary.getName() %></td>
                     <td class="text-center">
-                        <a href="#" class="btn btn-default">查看</a>
+                        <a class="btn btn-default" onclick="bootbox.alert('<%=summary.getDetail() %>')">查看</a>
                     </td>
                 </tr>
-				<tr>
-                    <td>毕业晚会</td>
-                    <td>校长</td>
-					<td class="text-center">
-                        <a href="#" class="btn btn-default">查看</a>
-                    </td>
-                </tr>
+             <%
+               		} 
+                	
+             	}
+             %>
             </tbody>
         </table>
       </div>
@@ -148,7 +155,6 @@
 </div>
 
 </main>
-
 
 <%@include file="footer.html" %>
 <script type="text/javascript">

@@ -2,7 +2,9 @@ package com.dajiao.model;
 
 public class MeetingRecord {
 	
-	private String id;
+	private int id;
+	private String topic;
+	private String name;
 	private String detail;
 
 	public MeetingRecord() {
@@ -12,14 +14,14 @@ public class MeetingRecord {
 	/**
 	 * @return the id
 	 */
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -35,6 +37,34 @@ public class MeetingRecord {
 	 */
 	public void setDetail(String detail) {
 		this.detail = detail;
+	}
+
+	/**
+	 * @return the topic
+	 */
+	public String getTopic() {
+		return topic;
+	}
+
+	/**
+	 * @param topic the topic to set
+	 */
+	public void setTopic(String topic) {
+		this.topic = topic;
+	}
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 }

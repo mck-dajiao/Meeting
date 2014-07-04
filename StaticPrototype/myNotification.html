@@ -217,6 +217,13 @@
     </div>
 </footer>
 
+<!-- html页面form表单，放置在html页面中的位置不限 --> 
+<form name="insertForm" method="post" action="yourJSP"> 
+<!-- 下面这一句是获取JSP程序中传递过来的变量值 --> 
+<input type="hidden" name="mc" value="<%=varMC%>"> 
+<input type="button" value="提交" onclick="insertclick()"> 
+</form>
+
 
     <script src="./scripts/jquery-1.11.0.min.js"></script>
     <script src="./bootstrap/js/bootstrap.min.js"></script>

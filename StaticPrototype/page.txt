@@ -55,6 +55,13 @@ header，footer，sidebar
 #### 修改会议室信息
 #### 添加会议室
 
+@Serious 
+1 提交总结
+2 分页
+3 邀请人
+	1 按部门
+	2 通过姓名添加
+
 @TODO
 1 login.html:改变登陆变化颜色
 2 输入限制设计
