@@ -8,6 +8,9 @@
 <%@include file="header.jsp" %>
 <%@include file="navbar.html" %>
 <%@include file="header2.jsp" %>
+<%
+	String success = (String)request.getParameter("success");
+%>
 
 <body onload="navload(1);">
 
@@ -114,6 +117,12 @@
 <%@include file="footer.html" %>
 <script type="text/javascript">
 titleLoad("预约会议");
+
+var success = '<%=success%>';
+if(success.equals("1")){
+	bootbox.alert("预订成功！");
+}
+
 function addRoomId(id){
 	document.getElementById('meetingRoom').setAttribute("value", id);
 }

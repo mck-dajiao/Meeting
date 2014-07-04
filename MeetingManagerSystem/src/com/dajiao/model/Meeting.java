@@ -8,8 +8,10 @@ public class Meeting {
 	private String bookpeople;
 	private String topic;
 	private int meetingRoom;
-	private Timestamp strattime;
+	private String roomName;
+	private Timestamp starttime;
 	private Timestamp endtime;
+	private String detail;
 	
 
 	public Meeting() {
@@ -82,18 +84,18 @@ public class Meeting {
 
 
 	/**
-	 * @return the strattime
+	 * @return the starttime
 	 */
-	public Timestamp getStrattime() {
-		return strattime;
+	public Timestamp getStarttime() {
+		return starttime;
 	}
 
 
 	/**
-	 * @param strattime the strattime to set
+	 * @param starttime the starttime to set
 	 */
-	public void setStrattime(Timestamp strattime) {
-		this.strattime = strattime;
+	public void setStarttime(Timestamp starttime) {
+		this.starttime = starttime;
 	}
 
 
@@ -113,4 +115,69 @@ public class Meeting {
 	}
 
 
+	/**
+	 * @return the bookpeople
+	 */
+	public String getBookpeople() {
+		return bookpeople;
+	}
+
+
+	/**
+	 * @param bookpeople the bookpeople to set
+	 */
+	public void setBookpeople(String bookpeople) {
+		this.bookpeople = bookpeople;
+	}
+
+
+	/**
+	 * @return the roomName
+	 */
+	public String getRoomname() {
+		return roomName;
+	}
+
+
+	/**
+	 * @param roomname the roomName to set
+	 */
+	public void setRoomname(String roomName) {
+		this.roomName = roomName;
+	}
+
+
+	/**
+	 * @return the roomName
+	 */
+	public String getRoomName() {
+		return roomName;
+	}
+
+
+	/**
+	 * @param roomName the roomName to set
+	 */
+	public void setRoomName(String roomName) {
+		this.roomName = roomName;
+	}
+
+
+	/**
+	 * @return the detail
+	 */
+	public String getDetail() {
+		return detail;
+	}
+
+
+	/**
+	 * @param detail the detail to set
+	 */
+	public void setDetail(String detail) {
+		this.detail = detail;
+	}
+	
+	
+	
 }

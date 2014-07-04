@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dajiao.service.BookingRoomService;
+import com.dajiao.model.Meeting;
 import com.dajiao.model.MeetingRoom;
+import com.dajiao.model.User;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -21,6 +23,8 @@ import java.util.ArrayList;
 @WebServlet("/BookingRoomServlet")
 public class BookingRoomServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private Timestamp start;
+	private Timestamp end;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -54,11 +58,12 @@ public class BookingRoomServlet extends HttpServlet {
 		if(startdate != null && starttime != null && enddate != null && endtime != null){
 			System.out.println(startdate+starttime);
 			System.out.println(enddate+endtime);
+			start = Timestamp.valueOf(startdate+" "+starttime+":00");
+			end = Timestamp.valueOf(enddate+" "+endtime+":00");
+			
+			request.setAttribute("roomList", BookingRoomService.getRoomList(start,end));
+			
 			/*
-			request.setAttribute("roomList", BookingRoomService.getRoomList(
-					Timestamp.valueOf(startdate+" "+starttime+":00"),
-					Timestamp.valueOf(enddate+" "+endtime+":00")));
-			*/
 			List<MeetingRoom> list = new ArrayList<MeetingRoom>();
 			MeetingRoom room = new MeetingRoom();
 			room.setId(123);
@@ -68,11 +73,29 @@ public class BookingRoomServlet extends HttpServlet {
 			room.setType("normal");
 			list.add(room);
 			request.setAttribute("roomList", list);
+			*/
 			
 			request.getRequestDispatcher("./bookingRoom.jsp").forward(request, response);
 		}
 
 		if(topic != null && meetingRoom != null){
+			Meeting meeting = new Meeting();
+			meeting.setTopic(topic);
+			/*
+			User user = (User)request.getSession().getAttribute("person");
+			if(user == null){
+				request.getRequestDispatcher("./meetingManager.jsp").forward(request, response);
+			}
+
+			meeting.setbookpeople(user.getaccount());
+						*/
+			meeting.setbookpeople("12345678");
+			meeting.setStarttime(start);
+			meeting.setEndtime(end);
+			meeting.setMeetingRoom(Integer.parseInt(meetingRoom));
+			if(BookingRoomService.bookingRoom(meeting)==true){
+				request.getRequestDispatcher("./bookingRoom.jsp?success=1").forward(request, response);
+			}
 			System.out.println(topic);
 			System.out.println(meetingRoom);
 		}

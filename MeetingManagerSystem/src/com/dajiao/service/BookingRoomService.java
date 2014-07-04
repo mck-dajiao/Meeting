@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.util.List;
 
 import com.dajiao.dao.BookingRoomDAO;
+import com.dajiao.model.Meeting;
 import com.dajiao.model.MeetingRoom;
 
 public class BookingRoomService {
@@ -16,4 +17,7 @@ public class BookingRoomService {
 		return BookingRoomDAO.getMeetingRoom(startTime, endTime);
 	}
 
+	public static boolean bookingRoom(Meeting meeting){
+		return BookingRoomDAO.bookingRoom(meeting);
+	}
 }
