@@ -7,6 +7,21 @@ public class MeetingRoom {
 	private String type;
 	private int num;
 	private int total;
+	private String status;
+
+	/**
+	 * @return the status
+	 */
+	public String getStatus() {
+		return status;
+	}
+
+	/**
+	 * @param status the status to set
+	 */
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
 	public MeetingRoom() {
 		// TODO Auto-generated constructor stub

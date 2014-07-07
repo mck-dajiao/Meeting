@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>大屏轮播条</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="ad" class="carousel slide" data-ride="carousel" data-interval="3000">
+        <div class="carousel-inner">
+            <div class="item active">
+                <a href="#">
+                    <img src="images/1.jpg" />
+                </a>
+            </div>
+            <div class="item">
+                <a href="#">
+                    <img src="images/2.jpg" />
+                </a>
+            </div>
+            <div class="item">
+                <a href="#">
+                    <img src="images/3.jpg" />
+                </a>
+            </div>
+        </div>
+        <a class="left carousel-control" href="#ad" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#ad" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+        <ol class="carousel-indicators">
+            <li data-target="#ad" data-slide-to="0" class="active"></li>
+            <li data-target="#ad" data-slide-to="1"></li>
+            <li data-target="#ad" data-slide-to="2"></li>
+        </ol>
+    </div>
+
+    <br />
+    <br />
+
+    <div id="ad2" class="carousel slide" data-ride="carousel" data-interval="3000" style="width:300px">
+        <div class="carousel-inner">
+            <div class="item active">
+                <a href="#">
+                    <img src="images/4.jpg" width="300"/>
+                </a>
+            </div>
+            <div class="item">
+                <a href="#">
+                    <img src="images/5.jpg" width="300" />
+                </a>
+            </div>
+            <div class="item">
+                <a href="#">
+                    <img src="images/6.jpg" width="300" />
+                </a>
+            </div>
+        </div>
+        <a class="left carousel-control" href="#ad2" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#ad2" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+    </div>
+
+    <script src="scripts/jquery-1.11.0.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -234,6 +234,8 @@
 	</div>
 	</div>
 	<!-- 提交总结对话框结束 -->
+	
+
 
 	<%@include file="footer.html"%>
 	<script type="text/javascript">
@@ -254,7 +256,6 @@ if(insert != null){
 		bootbox.alert("提交失败");
 	}
 }
-
 
 titleLoad("我的预订");
 

@@ -4,6 +4,7 @@ public class User extends Person {
 	
 	private int id;
 	private String name;
+	private String sex;
 	private String anhao;
 	private String department;
 	private String status;
@@ -105,6 +106,34 @@ public class User extends Person {
 	 */
 	public void setAnhao(String anhao) {
 		this.anhao = anhao;
+	}
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/**
+	 * @return the sex
+	 */
+	public String getSex() {
+		return sex;
+	}
+
+	/**
+	 * @param sex the sex to set
+	 */
+	public void setSex(String sex) {
+		this.sex = sex;
 	}
 	
 	
