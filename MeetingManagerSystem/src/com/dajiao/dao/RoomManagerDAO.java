@@ -10,6 +10,10 @@ public class RoomManagerDAO {
 		// TODO Auto-generated constructor stub
 	}
 	
+	public static List<MeetingRoom> getALlMeetingRoom(){
+		return null;
+	}
+	
 	public static List<MeetingRoom> getMeetingRoomsByStatus(String status){
 		// 根据会议室状态获取会议室列表
 		return null;
@@ -42,6 +46,10 @@ public class RoomManagerDAO {
 	
 	public static boolean openMeetingRoom(int id){
 		// 启用会议室
+		return false;
+	}
+	
+	public static boolean deleteMeetingRoom(String[] roomId){
 		return false;
 	}
 }

@@ -48,4 +48,10 @@ public class EmployeeManagerDAO {
 		// 修改用户
 		return false;
 	}
+	
+	public static boolean deleteUser(String[] userList){
+		// 字符串数组
+		return false;
+	}
+	
 }

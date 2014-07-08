@@ -24,4 +24,8 @@ public class EquitmentManagerDAO {
 		// 归还
 		return false;
 	}
+	
+	public static Borrow getBorrowById(int id){
+		return null;
+	}
 }

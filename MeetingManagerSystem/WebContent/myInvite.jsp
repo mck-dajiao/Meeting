@@ -331,7 +331,7 @@
 		var inviteForm = document.getElementById('inviteForm');
 		var input = document.createElement("input");
 		var id = inviteForm.childElementCount + 1;
-		var value = userId +　" " + meetingId;
+		var value = userId + " " + meetingId;
 		input.setAttribute("type", "hidden");
 		input.setAttribute("name", "inviteUser");
 		input.setAttribute("value", value);

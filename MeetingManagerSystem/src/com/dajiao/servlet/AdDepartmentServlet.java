@@ -1,6 +1,8 @@
 package com.dajiao.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dajiao.model.Administrator;
+import com.dajiao.model.Department;
+import com.dajiao.service.AdDepartmentService;
 
 /**
  * Servlet implementation class AdDepartmentServlet
@@ -39,11 +43,58 @@ public class AdDepartmentServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		Administrator admin = (Administrator)request.getSession().getAttribute("person");
+		// test code
+		admin = new Administrator();
+		// end of test code
 		if(admin != null){
+			String newDep = (String)request.getParameter("new");
+			if(newDep!=null){
+				String newId = (String)request.getParameter("departmentId");
+				String newName = (String)request.getParameter("name");
+				
+				// test code
+				System.out.println("new id :" + newId);
+				System.out.println("new Name :" + newName);
+				// end of test code
+				
+				AdDepartmentService.newDepartment(Integer.parseInt(newId), newName);
+				// @TODO 添加用户通知
+			}
+			
+			String delete = (String)request.getParameter("delete");
+			if(delete!=null){
+				String[] value = (String[])request.getParameterValues("departmentId");
+				
+				// test code
+				for(String str : value)
+					System.out.println("department id:" + str);
+				// end of test code
+			}
+			
+			// request.setAttribute("departmentList", AdDepartmentService.getDepartmentList());
+			
+			// test code 
+			List<Department> list = new ArrayList<Department>();
+			Department department = new Department();
+			department.setId(12);
+			department.setName("dada");
+			list.add(department);
+			department = new Department();
+			department.setId(13);
+			department.setName("daadsa");
+			list.add(department);
+			department = new Department();
+			department.setId(14);
+			department.setName("dads");
+			list.add(department);
+			request.setAttribute("departmentList", list);
+			// end of test code
 			
 		}else{
 			request.getRequestDispatcher("./meetingManager.jsp").forward(request, response);
 		}
+		
+		request.getRequestDispatcher("./AdDepartment.jsp").forward(request, response);
 	}
 
 }
