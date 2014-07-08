@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dajiao.dao.NotificationDAO;
+import com.dajiao.model.Administrator;
 import com.dajiao.model.Person;
 import com.dajiao.model.User;
 import com.dajiao.service.LoginService;
@@ -52,8 +53,13 @@ public class LoginServlet extends HttpServlet {
 		if((person = LoginService.validate(username, password)) != null){
 			// load notifications
 			request.getSession().setAttribute("person", person);
-			request.getRequestDispatcher("NotificationServlet").forward(request, response);
-		    System.out.println("admin login success!");
+			if(person.getClass().equals(User.class)){
+				request.getRequestDispatcher("NotificationServlet").forward(request, response);
+				System.out.println("user " + person.getaccount() + " login success");
+			}else if(person.getClass().equals(Administrator.class)){
+				request.getRequestDispatcher("./admin.jsp").forward(request, response);
+			    System.out.println("admin login success!");
+			}
 		}else if(username != null && password != null){
 			request.setAttribute("fail", "1");
 			request.getRequestDispatcher("./meetingManager.jsp").forward(request, response);
@@ -62,7 +68,6 @@ public class LoginServlet extends HttpServlet {
 			// refresh page 
 			request.getRequestDispatcher("./meetingManager.jsp").forward(request, response);
 		}
-		
 	}
 
 }

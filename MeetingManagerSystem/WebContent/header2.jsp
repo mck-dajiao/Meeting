@@ -9,7 +9,7 @@
 <body>
 <header id="logo" class="container">
 <div class="row">
-		<div class="col-lg-8 col-lg-push-2">
+		<div class="col-lg-8 col-lg-push-2" id="header">
 			    <h1 class="blog-title">
 			    	<a id="page-title" href="meetingManager.jsp"></a>
 			    </h1>

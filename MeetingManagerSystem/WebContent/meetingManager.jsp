@@ -148,6 +148,8 @@
 	if(fail=='1'){
 		bootbox.alert("用户名或密码错误！");
 	}
+	var navbarItem = document.getElementsByTagName('a')[5];
+	navbarItem.innerText="不要点我";
 </script>
 
 </body>

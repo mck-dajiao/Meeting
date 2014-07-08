@@ -133,6 +133,7 @@
 							}
 							if(meetingId == null) meetingId="0";
 							%>
+							</tbody>
 						</table>
 						<ul class="pagination pagination-xm" style="float: left;">
 							<li title="第一页"><a href="#">&laquo;</a></li>
@@ -311,7 +312,7 @@
 		var deleteForm = document.getElementById('deleteForm');
 		var input = document.createElement("input");
 		var id = deleteForm.childElementCount + 1;
-		var value = userId +　" " + meetingId;
+		var value = userId + " " + meetingId;
 		input.setAttribute("type", "hidden");
 		input.setAttribute("name", "deleteUser");
 		input.setAttribute("value", value);
