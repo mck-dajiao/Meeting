@@ -13,6 +13,10 @@ function titleLoad(title){
 	document.getElementById('page-title').innerText=title;
 }
 
+function loadName(name){
+	document.getElementById('showUserName').innerText=name;
+}
+
 
 //*****meetingManager.jsp******
 

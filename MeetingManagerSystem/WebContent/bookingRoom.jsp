@@ -119,7 +119,7 @@
 titleLoad("预约会议");
 
 var success = '<%=success%>';
-if(success.equals("1")){
+if(success != 'null' && success.equals("1")){
 	bootbox.alert("预订成功！");
 }
 

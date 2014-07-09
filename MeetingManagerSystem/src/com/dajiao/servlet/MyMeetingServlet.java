@@ -47,7 +47,7 @@ public class MyMeetingServlet extends HttpServlet {
 		if(user != null){
 			request.setAttribute("meetingList", MyMeetingService.getMyMeeting(user.getaccount()));
 			
-			/*
+			
 			// test code
 			List<Meeting> meetingList = new ArrayList<Meeting>();
 			Meeting meeting = new Meeting();
@@ -59,7 +59,6 @@ public class MyMeetingServlet extends HttpServlet {
 			meetingList.add(meeting);
 			request.setAttribute("meetingList", meetingList);
 			// end of test code
-			 */
 			
 			request.getRequestDispatcher("./myMeeting.jsp").forward(request, response);
 		}else{

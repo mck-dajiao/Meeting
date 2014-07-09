@@ -164,7 +164,7 @@
 <%@include file="footer.html" %>
 <script>
 	var fail = '<%=fail%>';
-	if(fail=='1'){
+	if(fail != 'null' && fail=='1'){
 		bootbox.alert("用户名或密码错误！");
 	}
 	var navbarItem = document.getElementsByTagName('a')[5];

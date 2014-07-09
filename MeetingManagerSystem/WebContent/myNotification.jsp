@@ -158,7 +158,6 @@
 
 <%@include file="footer.html" %>
 <script type="text/javascript">
-var noti='<%=notinum%>';
 titleLoad("查看通知");
 </script>
 

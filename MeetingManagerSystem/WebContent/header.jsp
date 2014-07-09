@@ -19,7 +19,16 @@
 	<link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="./styles/dajiao.css" rel="stylesheet" type="text/css"/>
     <link href="./styles/main.min.css" rel="stylesheet" type="text/css"/>
-	<% request.setCharacterEncoding("utf-8");%>
+	<% request.setCharacterEncoding("utf-8");
+		String showUserName = (String)request.getParameter("showUserName");
+		if(showUserName != null){
+	%>
+	<script type="text/javascript">
+		loadName('<%=showUserName%>');
+	</script>
+	<%
+		}
+	%>
 </head>
 <body>
 

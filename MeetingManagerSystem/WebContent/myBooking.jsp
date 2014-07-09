@@ -45,7 +45,7 @@
 						class="btn btn-default" data-toggle="modal"
 						onclick="modify('<%=i%>',<%=meeting.getId()%>)">修改</a> 
 					<a href="#apply" class="btn btn-default" data-toggle="modal"
-						onclick="apply('<%=meeting.getId()%>',)">设备</a> 
+						onclick="apply(<%=meeting.getId()%>)">设备</a> 
 					<a	href="#summary" class="btn btn-default" data-toggle="modal"
 						onclick="summary(<%=meeting.getId()%>)">总结</a>
 					</td>
@@ -70,9 +70,9 @@
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<h4 class="modal-title text-center">信息更改</h4>
 				</div>
-				<div class="modal-body" method="post" action="MyBookingServlet">
+				<div class="modal-body" method="post" >
 					<form class="form-horizontal" method="post"
-						action="MyBookingServlet">
+						action="MyBookingServlet?change=1">
 						<div class="form-group">
 							<label for="meetingTopic" class="control-label col-md-2">会议编号</label>
 							<div class="col-md-10">
@@ -147,7 +147,7 @@
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<h4 class="modal-title text-center">设备申请</h4>
 				</div>
-				<div class="modal-body" method="post" action="MyBookingServlet">
+				<div class="modal-body" method="post" >
 					<form class="form-horizontal" method="post"
 						action="MyBookingServlet?apply=1">
 						<div class="form-group">
@@ -203,9 +203,9 @@
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<h4 class="modal-title text-center">提交总结</h4>
 				</div>
-				<div class="modal-body" method="post" action="Servlet">
+				<div class="modal-body" method="post" >
 					<form class="form-horizontal" method="post"
-						action="MyBookingServlet?submit=1">
+						action="MyBookingServlet?summary=1">
 						<div class="form-group">
 							<label for="meetingTopic" class="control-label col-md-2">会议编号</label>
 							<div class="col-md-10">
@@ -285,6 +285,7 @@ function apply(meetingId){
 function summary(meetingId){
 	document.getElementById("meetingIdSummary").setAttribute("value", meetingId);
 }
+
 
 </script>
 

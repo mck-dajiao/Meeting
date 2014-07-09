@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.dajiao.model.Meeting;
 import com.dajiao.model.MeetingRecord;
 import com.dajiao.model.Notification;
 import com.dajiao.util.ConnectionFactory;
@@ -126,4 +127,32 @@ public class NotificationDAO {
 
 		return null;
 	}
+	
+	public static boolean modifyMessage(Meeting meeting) {
+		Connection conn = ConnectionFactory.getConnection();
+
+		if (conn == null)
+			return false;
+		try {
+			PreparedStatement pSt = null;
+			String sql = "insert into notification(meetingid,detail,type) values("
+					+ meeting.getId()
+					+ ",'"
+					+ meeting.getDetail()
+					+ "','change')";
+
+			pSt = conn.prepareStatement(sql);
+			int rs = pSt.executeUpdate(sql);
+
+			if (rs == 1)
+				return true;
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return false;
+	}
+
 }
