@@ -121,12 +121,12 @@
 									User user = userList.get(i);
 							%>
 								<tr id="itr<%=i%>">
-									<td><%=user.getId() %></td>
+									<td><%=user.getUserid() %></td>
 									<td><%=user.getName() %></td>
 									<td><%=user.getSex() %></td>
 									<td><%=user.getDepartment() %></td>
 									<td><a href="#" class="btn btn-primary btn-sm"
-										onclick="deleteUser(<%=i %>,<%=user.getId() %>,<%=meetingId %>);">删除</a></td>
+										onclick="deleteUser(<%=i %>,<%=user.getUserid() %>,<%=meetingId %>);">删除</a></td>
 								</tr>
 							<%
 								}
@@ -178,13 +178,13 @@
 										User user = userList.get(i);
 							%>
 								<tr id="str<%=i%>">
-									<td><%=user.getId() %></td>
+									<td><%=user.getUserid() %></td>
 									<td><%=user.getName() %></td>
 									<td><%=user.getSex() %></td>
 									<td><%=user.getDepartment() %></td>
 									<td><a href="#"
 										class="btn btn-primary btn-sm"
-										onclick="inviteUser(<%=i%>,<%=user.getId()%>,<%=meetingId%>)">邀请</a></td>
+										onclick="inviteUser(<%=i%>,<%=user.getUserid()%>,<%=meetingId%>)">邀请</a></td>
 								</tr>
 							<%
 									}

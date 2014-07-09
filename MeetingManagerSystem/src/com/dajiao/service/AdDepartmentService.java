@@ -22,4 +22,8 @@ public class AdDepartmentService {
 	public static List<Department> getDepartmentList(){
 		return DepartmentManagerDAO.getAllDepartment();
 	}
+	
+	public static boolean deleteDepartment(String[] value){
+		return DepartmentManagerDAO.deleteDepartment(value);
+	}
 }

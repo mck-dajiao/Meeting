@@ -9,7 +9,7 @@
 <%@include file="navbar.html" %>
 <%@include file="header2.jsp" %>
 
-<body onload="navload(3);">
+<body onload="navload(2);">
 
 <main class="container" role="main">
                     

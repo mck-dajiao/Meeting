@@ -24,22 +24,22 @@
             </thead>
             <tbody>
             <%
+            	request.setCharacterEncoding("utf-8");
             	List<User> userList = (List<User>)request.getAttribute("userList");
             	if(userList != null){
             		for(int i = 0; i<userList.size(); i++){
             			User user = userList.get(i);
             %>
-
                 <tr id="tr<%=i%>">
                     <td><%=user.getName() %></td>
-                    <td><%=user.getId() %></td>
+                    <td><%=user.getUserid() %></td>
 					<td><%=user.getDepartment() %></td>
 					<td><%=user.getAnhao() %></td>
                     <td class="text-center">
-                        <a href="#" class="btn btn-default" onclick="doAction(<%=i%>,'<%=user.getaccount() %>','agree');">通过</a>
-						<a href="#" class="btn btn-default" onclick="doAction(<%=i%>,'<%=user.getaccount() %>','disagree');">拒绝</a>
+                        <a href="#" class="btn btn-default" onclick="doAction('<%=i%>','<%=user.getAccount() %>','agree');">通过</a>
+						<a href="#" class="btn btn-default" onclick="doAction('<%=i%>','<%=user.getAccount() %>','disagree');">拒绝</a>
                     </td>
-                </tr>
+               </tr>
             <%
             		}
             	}

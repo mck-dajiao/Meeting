@@ -62,7 +62,7 @@ public class MyInviteServlet extends HttpServlet {
 				List<User> userList = new ArrayList<User>();
 				user = new User();
 				user.setaccount("jiao");
-				user.setId(11);
+				user.setUserid("12");
 				user.setDepartment("帅哥部");
 				user.setName("伪");
 				user.setSex("man");
@@ -70,7 +70,7 @@ public class MyInviteServlet extends HttpServlet {
 				userList.add(user);
 				user = new User();
 				user.setaccount("dajiao");
-				user.setId(10);
+				user.setUserid("121");
 				user.setDepartment("帅哥部");
 				user.setName("伪装成");
 				user.setSex("man");
@@ -119,7 +119,7 @@ public class MyInviteServlet extends HttpServlet {
 			List<User> userList = new ArrayList<User>();
 			user = new User();
 			user.setaccount("searchjiao");
-			user.setId(12);
+			user.setUserid("2");
 			user.setDepartment("帅哥部");
 			user.setName("伪");
 			user.setSex("man");
@@ -127,7 +127,7 @@ public class MyInviteServlet extends HttpServlet {
 			userList.add(user);
 			user = new User();
 			user.setaccount("searchDajiao");
-			user.setId(13);
+			user.setUserid("92");
 			user.setDepartment("帅哥部");
 			user.setName("伪装成");
 			user.setSex("man");

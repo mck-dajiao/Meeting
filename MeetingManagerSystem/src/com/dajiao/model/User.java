@@ -2,7 +2,7 @@ package com.dajiao.model;
 
 public class User extends Person {
 	
-	private int id;
+	private String userid;
 	private String name;
 	private String sex;
 	private String anhao;
@@ -25,45 +25,31 @@ public class User extends Person {
 	}
 	
 	/**
-	 * @return the id
+	 * @return the userid
 	 */
-	public int getId() {
-		return id;
+	public String getUserid() {
+		return userid;
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param userid the userid to set
 	 */
-	public void setId(int id) {
-		this.id = id;
+	public void setUserid(String userid) {
+		this.userid = userid;
 	}
 
 	/**
 	 * @return the account
 	 */
-	public String getaccount() {
+	public String getAccount() {
 		return account;
 	}
 
 	/**
 	 * @param account the account to set
 	 */
-	public void setaccount(String account) {
+	public void setAccount(String account) {
 		this.account = account;
-	}
-
-	/**
-	 * @return the name
-	 */
-	public String getname() {
-		return name;
-	}
-
-	/**
-	 * @param name the name to set
-	 */
-	public void setname(String name) {
-		this.name = name;
 	}
 
 	/**

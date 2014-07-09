@@ -20,6 +20,7 @@ public class NotificationDAO {
 	// invite message
 	public static List<Notification> getInviteList(String useraccount){
 
+
 		List<Notification> list = new ArrayList<Notification>();
 		Connection conn = ConnectionFactory.getConnection();
 
@@ -29,7 +30,7 @@ public class NotificationDAO {
 			PreparedStatement pSt = null;
 			System.out.println("useraccount :" + useraccount);
 			String sql = "select meeting.topic,meetingroom.name,meeting.starttime,meeting.endtime,notification.detail from meeting inner join meetinguser on meetinguser.meetingid=meeting.meetingid inner join meetingroom on meetingroom.meetingroomid=meeting.meetingroomid inner join notification on notification.meetingid=meeting.meetingid where meetinguser.useraccount='"
-					+ useraccount + "'";
+					+ useraccount + "' and notification.type='invite'";
 			pSt = conn.prepareStatement(sql);
 			ResultSet rs = pSt.executeQuery(sql);
 
@@ -58,44 +59,42 @@ public class NotificationDAO {
 	public static List<Notification> getChangeInfoList(String useraccount){
 		List<Notification> list = new ArrayList<Notification>();
 		Connection conn = ConnectionFactory.getConnection();
-		
-		if(conn==null) return null;
+
+		if (conn == null)
+			return null;
 		try {
 			PreparedStatement pSt = null;
 			System.out.println("useraccount :" + useraccount);
-			String sql = "select * from notification where type='change' and useraccount='"
-					+ useraccount + "'";
+			String sql = "select meeting.topic,meetingroom.name,meeting.starttime,meeting.endtime,notification.detail from meeting inner join meetinguser on meetinguser.meetingid=meeting.meetingid inner join meetingroom on meetingroom.meetingroomid=meeting.meetingroomid inner join notification on notification.meetingid=meeting.meetingid where meetinguser.useraccount='"
+					+ useraccount + "' and notification.type='change'";
 			pSt = conn.prepareStatement(sql);
 			ResultSet rs = pSt.executeQuery(sql);
-			
-			while(rs.next()==true){
+
+			while (rs.next() == true) {
 				Notification notify = new Notification();
-				
-				notify.setId(rs.getInt(1));
-				notify.setUseraccount(rs.getString(2));
-				notify.setTopic(rs.getString(3));
-				notify.setMeetingRoom(rs.getString(4));
-				notify.setStarttime(rs.getTimestamp(5));
-				notify.setEndtime(rs.getTimestamp(6));
-				notify.setDetail(rs.getString(7));
-				
-				System.out.println("add change notify:" + notify.getTopic());
+
+				notify.setTopic(rs.getString(1));
+				notify.setMeetingRoom(rs.getString(2));
+				notify.setStarttime(rs.getTimestamp(3));
+				notify.setEndtime(rs.getTimestamp(4));
+				notify.setDetail(rs.getString(5));
+
+				System.out.println("add invite notify:" + notify.getTopic());
 				list.add(notify);
 			}
-			
+
 			return list;
-			
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}	
-		
+		}
 		return null;
 	}
 	
 	public static List<MeetingRecord> getRecordList(String useraccount){
-		
 		List<MeetingRecord> list = new ArrayList<MeetingRecord>();
+
 		Connection conn = ConnectionFactory.getConnection();
 
 		if (conn == null)
@@ -103,20 +102,19 @@ public class NotificationDAO {
 		try {
 			PreparedStatement pSt = null;
 			System.out.println("useraccount :" + useraccount);
-			String sql = "select meetingid,topic,bookpeople,detail from  meeting natural join summary where useraccount = '"
-					+ useraccount + "'";
+			String sql = "select meeting.topic,summary.detail,summary.username from meeting  inner join meetinguser on meeting.meetingid=meetinguser.meetingid inner join summary on summary.meetingid=meeting.meetingid where meetinguser.useraccount='"
+					+ useraccount + "' ";
 
 			pSt = conn.prepareStatement(sql);
 			ResultSet rs = pSt.executeQuery(sql);
 
 			while (rs.next() == true) {
 				MeetingRecord record = new MeetingRecord();
-				record.setId(rs.getInt(1));
-				record.setTopic(rs.getString(2));
+				record.setTopic(rs.getString(1));
 				record.setName(rs.getString(3));
-				record.setDetail(rs.getString(4));
+				record.setDetail(rs.getString(2));
 
-				System.out.println("add record:" + record.getTopic());
+				System.out.println("add record:" + record.getDetail());
 				list.add(record);
 			}
 			return list;
@@ -125,7 +123,7 @@ public class NotificationDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return null;
 	}
 }

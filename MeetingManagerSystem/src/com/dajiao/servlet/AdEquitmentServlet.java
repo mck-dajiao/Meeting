@@ -45,8 +45,8 @@ public class AdEquitmentServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		Administrator admin = (Administrator)request.getSession().getAttribute("person");
 		
-		// test code
-		admin = new Administrator();
+//		// test code
+//		admin = new Administrator();
 		
 		if(admin != null){
 			
@@ -56,49 +56,51 @@ public class AdEquitmentServlet extends HttpServlet {
 				
 				System.out.println("id " + id);
 				
-				AdEquitmentService.changeStatus(id);
+				if(AdEquitmentService.changeStatus(id)==true)
+					System.out.println("change success");
 				// @TODO add some response
 				
 			}
 			
-			// test code
-			List<Borrow> list = new ArrayList<Borrow>();
-			Borrow borrow = new Borrow();
-			borrow.setId(12);
-			borrow.setStatus("borrowing");
-			borrow.setaNum(21);
-			borrow.setbNum(8);
-			borrow.setcNum(3);
-			borrow.setDate(Timestamp.valueOf("2014-04-30 23:12:31"));
-			borrow.setBorrower("nimei");
-			list.add(borrow);
-			borrow = new Borrow();
-			borrow.setId(12);
-			borrow.setStatus("borrowed");
-			borrow.setaNum(2);
-			borrow.setbNum(6);
-			borrow.setcNum(12);
-			borrow.setDate(Timestamp.valueOf("2014-06-30 23:13:31"));
-			borrow.setBorrower("nige");
-			list.add(borrow);
-			borrow = new Borrow();
-			borrow.setId(12);
-			borrow.setStatus("borrowing");
-			borrow.setaNum(1);
-			borrow.setbNum(8);
-			borrow.setcNum(87);
-			borrow.setDate(Timestamp.valueOf("2014-05-30 03:12:31"));
-			borrow.setBorrower("tamei");
-			list.add(borrow);
-			request.setAttribute("borrowList", list);
+//			// test code
+//			List<Borrow> list = new ArrayList<Borrow>();
+//			Borrow borrow = new Borrow();
+//			borrow.setId(12);
+//			borrow.setStatus("borrowing");
+//			borrow.setaNum(21);
+//			borrow.setbNum(8);
+//			borrow.setcNum(3);
+//			borrow.setDate(Timestamp.valueOf("2014-04-30 23:12:31"));
+//			borrow.setBorrower("nimei");
+//			list.add(borrow);
+//			borrow = new Borrow();
+//			borrow.setId(12);
+//			borrow.setStatus("borrowed");
+//			borrow.setaNum(2);
+//			borrow.setbNum(6);
+//			borrow.setcNum(12);
+//			borrow.setDate(Timestamp.valueOf("2014-06-30 23:13:31"));
+//			borrow.setBorrower("nige");
+//			list.add(borrow);
+//			borrow = new Borrow();
+//			borrow.setId(12);
+//			borrow.setStatus("borrowing");
+//			borrow.setaNum(1);
+//			borrow.setbNum(8);
+//			borrow.setcNum(87);
+//			borrow.setDate(Timestamp.valueOf("2014-05-30 03:12:31"));
+//			borrow.setBorrower("tamei");
+//			list.add(borrow);
+//			request.setAttribute("borrowList", list);
 			
-			// request.setAttribute("borrowList", AdEquitmentService.getBorrowList());
+			request.setAttribute("borrowList", AdEquitmentService.getBorrowList());
 			
+			request.getRequestDispatcher("./AdEquitment.jsp").forward(request, response);
 			
 		}else{
 			request.getRequestDispatcher("./meetingManager.jsp").forward(request, response);
 		}
-		request.getRequestDispatcher("./AdEquitment.jsp").forward(request, response);
+		
 	}
 
 }

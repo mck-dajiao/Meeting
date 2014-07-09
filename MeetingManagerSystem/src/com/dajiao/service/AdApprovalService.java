@@ -16,10 +16,10 @@ public class AdApprovalService {
 	}
 
 	public static boolean agreeUserList(String[] accountList){
-		return false;
+		return AdApprovalDAO.acceptUser(accountList);
 	}
 	
 	public static boolean disagreeUserList(String[] accountList){
-		return false;
+		return AdApprovalDAO.rejectUser(accountList);
 	}
 }

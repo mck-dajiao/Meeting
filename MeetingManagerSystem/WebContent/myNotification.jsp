@@ -15,7 +15,7 @@
 
 <body onload="navload(0);">
 
-
+<main class="container" role="main">
 <div class="panel-group" id="accordion">
   <div class="panel panel-default">
     <div class="panel-heading">
@@ -159,7 +159,6 @@
 <%@include file="footer.html" %>
 <script type="text/javascript">
 var noti='<%=notinum%>';
-addNotify(noti);
 titleLoad("查看通知");
 </script>
 

@@ -7,6 +7,7 @@
 </head>
 
 <%
+
 	String logout = (String)request.getAttribute("logout");
 	if(logout!=null && logout.equals("1")){
 		session.removeAttribute("person");
@@ -80,7 +81,7 @@
                 </div>
                 <div class="modal-footer">
                     <div class="text-center">
-                          <a href="#">忘记密码</a>
+                          <a href="#" onclick="alert('又是你，老忘记密码，滚。。。')">忘记密码</a>
                     </div>
                 </div>
             </div>
@@ -97,7 +98,7 @@
                     <h4 class="modal-title text-center">用户注册</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal" method="post" action="RegisterServlet">
+                    <form class="form-horizontal" method="post" action="RegisterServlet" onsubmit="return check()">
                         <div class="form-group">
                             <label for="username" class="control-label col-md-2">用户名</label>
                             <div class="col-md-10">
@@ -110,20 +111,38 @@
                                 <input type="password" name="passwordRe" class="form-control" />
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="password" class="control-label col-md-2">确认密码</label>
+                            <div class="col-md-10">
+                                <input type="password" name="passwordRe2" class="form-control" />
+                            </div>
+                        </div>
 						<div class="form-group">
-                            <label for="password" class="control-label col-md-2">真实姓名</label>
+                            <label for="realname" class="control-label col-md-2">真实姓名</label>
                             <div class="col-md-10">
                                 <input type="text" name="nameRe" class="form-control" />
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="sex" class="control-label col-md-2">性别</label>
+                            <div class="col-md-10">
+                                <input type="text" name="sexRe" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="userid" class="control-label col-md-2">员工编号</label>
+                            <div class="col-md-10">
+                                <input type="text" name="useridRe" class="form-control" />
+                            </div>
+                        </div>
 						<div class="form-group">
-                            <label for="password" class="control-label col-md-2">部门</label>
+                            <label for="department" class="control-label col-md-2">部门</label>
                             <div class="col-md-10">
                                 <input type="text" name="departmentRe" class="form-control" />
                             </div>
                         </div>
 						<div class="form-group">
-                            <label for="password" class="control-label col-md-2">暗号</label>
+                            <label for="anhao" class="control-label col-md-2">暗号</label>
                             <div class="col-md-10">
                                 <input type="text" name="anhaoRe" class="form-control" />
                             </div>
@@ -150,6 +169,52 @@
 	}
 	var navbarItem = document.getElementsByTagName('a')[5];
 	navbarItem.innerText="不要点我";
+	
+	function check(){
+		var pwd = document.getElementsByName('passwordRe')[0].value;
+		var pwd2 = document.getElementsByName('passwordRe2')[0].value;
+		if(pwd==pwd2)
+			return true;
+
+		if(pwd==null || pwd2==null){
+			alert("密码不能为空");
+			return false;
+		}
+		
+		if(document.getElementsByName("accountRe")[0]==null){
+			alert("用户名不能为空");
+			return false;
+		}
+		
+		if(document.getElementsByName("nameRe")[0]==null){
+			alert("姓名不能为空");
+			return false;
+		}
+		
+		if(document.getElementsByName("departmentRe")[0]==null){
+			alert("部门不能为空");
+			return false;
+		}
+		
+		if(document.getElementsByName("anhaoRe")[0]==null){
+			alert("暗号不能为空");
+			return false;
+		}
+		
+		if(document.getElementsByName("useridRe")[0]==null){
+			alert("员工编号不能为空");
+			return false;
+		}
+		
+		if(document.getElementsByName("sexRe")[0]==null){
+			alert("性别不能为空");
+			return false;
+		}
+		
+		alert("两次密码不一样");
+		return false;
+	}
+	
 </script>
 
 </body>

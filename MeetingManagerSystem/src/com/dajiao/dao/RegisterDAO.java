@@ -16,31 +16,43 @@ public class RegisterDAO {
 	public static boolean insertNewUser(User user, String password){
 		
 		Connection conn = ConnectionFactory.getConnection();
-		
-		
-		
-		if(conn==null) return false;
-		
+
+		if (conn == null)
+			return false;
+
 		try {
 			PreparedStatement pSt = null;
-			String sql = "insert into User(account,password,name,department,status) values(?,?,?,?,?)";
+			String sql = "insert into User(userid,account,password,name,sex,department,anhao) values('"
+					+ user.getUserid()
+					+ "','"
+					+ user.getAccount()
+					+ "','"
+					+ password
+					+ "','"
+					+ user.getName()
+					+ "','"
+					+ user.getSex()
+					+ "','"
+					+ user.getDepartment()
+					+ "','"
+					+ user.getAnhao()
+					+ "')";
 			pSt = conn.prepareStatement(sql);
-			pSt.setString(1, user.getaccount());
-			pSt.setString(2, password);
-			pSt.setString(3, user.getname());
-			pSt.setString(4, user.getDepartment());
-			pSt.setString(5, user.getStatus());
+			System.out.println("resister userid" + user.getUserid()
+					+ " account " + user.getAccount() + " name "
+					+ user.getName() + " sex " + user.getSex() + " department "
+					+ user.getDepartment() + " anhao " + user.getAnhao());
 			int result = pSt.executeUpdate();
-			if(result == 1)
+			if (result == 1)
 				return true;
-			
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}	
-					
-		
+		}
+
 		return false;
+
 	}
 
 }

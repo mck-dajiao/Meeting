@@ -43,11 +43,12 @@ public class AdEmployeeServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("utf-8");
 		Administrator admin = (Administrator)request.getSession().getAttribute("person");
 		
-		// test code
-		admin = new Administrator();
-		// end of test code
+//		// test code
+//		admin = new Administrator();
+//		// end of test code
 		
 		if(admin != null){
 			String delete = (String)request.getParameter("delete");
@@ -65,11 +66,13 @@ public class AdEmployeeServlet extends HttpServlet {
 			
 			String newEmployee = (String)request.getParameter("newEmployee");
 			if(newEmployee!=null){
-				String account = (String)request.getParameter("account");
-				String name = (String)request.getParameter("name");
-				String password = (String)request.getParameter("password");
-				String anhao = (String)request.getParameter("anhao");
-				String department = (String)request.getParameter("department");
+				String account = (String)request.getParameter("accountRe");
+				String name = (String)request.getParameter("nameRe");
+				String password = (String)request.getParameter("passwordRe");
+				String anhao = (String)request.getParameter("anhaoRe");
+				String department = (String)request.getParameter("departmentRe");
+				String userid = (String)request.getParameter("useridRe");
+				String sex = (String)request.getParameter("sexRe");
 				
 				// test code
 				System.out.println("account :" + account);
@@ -81,11 +84,14 @@ public class AdEmployeeServlet extends HttpServlet {
 				
 				User user = new User();
 				user.setaccount(account);
-				user.setname(name);
+				user.setName(name);
 				user.setAnhao(anhao);
 				user.setDepartment(department);
+				user.setSex(sex);
+				user.setUserid(userid);
 				user.setStatus("approval");
-				// RegisterService.register(user, password);
+				if(RegisterService.register(user, password)==true)
+					System.out.println("register new user : " + user.getAccount());
 				// @TODO 添加用户提示
 			}
 			
@@ -97,41 +103,41 @@ public class AdEmployeeServlet extends HttpServlet {
 				
 				// test code
 				System.out.println("name " + name);
-				System.out.println("departmet " + department);
+				System.out.println("department " + department);
 				System.out.println("userId " + userId);
 				// end of test code
 				
-				// List<User> userList = (List<User>)AdEmployeeService.getUserList(name, userId, department);
+				List<User> userList = (List<User>)AdEmployeeService.getUserList(name, userId, department);
 				
-				// test code
-				List<User> userList = new ArrayList<User>();
-				User user;
-				user = new User();
-				user.setaccount("jiao");
-				user.setId(11);
-				user.setDepartment("帅哥部");
-				user.setName("伪");
-				user.setSex("man");
-				user.setAnhao("烤鸭");
-				userList.add(user);
-				user = new User();
-				user.setaccount("dajiao");
-				user.setId(10);
-				user.setDepartment("帅哥部");
-				user.setName("伪装成");
-				user.setSex("man");
-				user.setAnhao("北京烤鸭");
-				userList.add(user);
-				// end of test code
+//				// test code
+//				List<User> userList = new ArrayList<User>();
+//				User user;
+//				user = new User();
+//				user.setAccount("jiao");
+//				user.setUserid("11");
+//				user.setDepartment("帅哥部");
+//				user.setName("伪");
+//				user.setSex("man");
+//				user.setAnhao("烤鸭");
+//				userList.add(user);
+//				user = new User();
+//				user.setAccount("dajiao");
+//				user.setUserid("10");
+//				user.setDepartment("帅哥部");
+//				user.setName("伪装成");
+//				user.setSex("man");
+//				user.setAnhao("北京烤鸭");
+//				userList.add(user);
+//				// end of test code
 				request.setAttribute("userList", userList);
 			}
 			
-			
+			request.getRequestDispatcher("./AdEmployee.jsp").forward(request, response);
 		}else{
 			request.getRequestDispatcher("./meetingManager.jsp").forward(request, response);
 		}
 		
-		request.getRequestDispatcher("./AdEmployee.jsp").forward(request, response);;
+		
 	}
 
 }

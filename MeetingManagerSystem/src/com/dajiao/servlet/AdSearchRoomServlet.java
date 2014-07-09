@@ -43,74 +43,9 @@ public class AdSearchRoomServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		Administrator admin = (Administrator)request.getSession().getAttribute("person");
-		
-		// test code
-		admin = new Administrator();
-		// end of test code
-		
+
 		if(admin != null){
-			String search = (String)request.getParameter("search");
-			if(search != null){
-				String status = (String)request.getParameter("status");
-				
-				System.out.println("search meetingRoom by status : " + status);
-				
-				// test code
-				List<MeetingRoom> list = new ArrayList<MeetingRoom>();
-				MeetingRoom room = new MeetingRoom();
-				room.setId(1);
-				room.setName("nimei");
-				room.setStatus("open");
-				room.setTotal(300);
-				room.setType("multimedia");
-				list.add(room);
-				room = new MeetingRoom();
-				room.setId(3);
-				room.setName("nia");
-				room.setStatus("open");
-				room.setTotal(300);
-				room.setType("multimedia");
-				list.add(room);
-				room = new MeetingRoom();
-				room.setId(4);
-				room.setName("nimd");
-				room.setStatus("close");
-				room.setTotal(300);
-				room.setType("normal");
-				list.add(room);
-				request.setAttribute("roomList", list);
-				// end of test code
-				
-				// request.setAttribute("roomList", AdSearchRoomService.getRoomListByStatus(status));
-			}else{
-				// test code
-				List<MeetingRoom> list = new ArrayList<MeetingRoom>();
-				MeetingRoom room = new MeetingRoom();
-				room.setId(2);
-				room.setName("nimei");
-				room.setStatus("open");
-				room.setTotal(300);
-				room.setType("multimedia");
-				list.add(room);
-				room = new MeetingRoom();
-				room.setId(4);
-				room.setName("nia");
-				room.setStatus("open");
-				room.setTotal(300);
-				room.setType("multimedia");
-				list.add(room);
-				room = new MeetingRoom();
-				room.setId(6);
-				room.setName("nimd");
-				room.setStatus("close");
-				room.setTotal(300);
-				room.setType("normal");
-				list.add(room);
-				request.setAttribute("roomList", list);
-				// end of test code
-				
-				// request.setAttribute("roomList", AdSearchRoomService.getRoomList());
-			}
+			
 			
 			String modify = (String)request.getParameter("modify");
 			if(modify != null){
@@ -132,7 +67,8 @@ public class AdSearchRoomServlet extends HttpServlet {
 				room.setTotal(Integer.parseInt(capacity));
 				room.setStatus(status);
 				
-				AdSearchRoomService.modifyRoom(room);
+				if(AdSearchRoomService.modifyRoom(room)==true)
+					System.out.println("modify success");
 				// @TODO add response to user
 			}
 			
@@ -145,14 +81,81 @@ public class AdSearchRoomServlet extends HttpServlet {
 					System.out.println("room id : " + str);
 				// end of test code
 				
-				AdSearchRoomService.deleteRoom(value);
+				if(AdSearchRoomService.deleteRoom(value)==true){
+					System.out.println("delete success");
+				}
 			}
+			
+			String search = (String)request.getParameter("search");
+			if(search != null){
+				String status = (String)request.getParameter("status");
+				
+				System.out.println("search meetingRoom by status : " + status);
+				
+//				// test code
+//				List<MeetingRoom> list = new ArrayList<MeetingRoom>();
+//				MeetingRoom room = new MeetingRoom();
+//				room.setId(1);
+//				room.setName("nimei");
+//				room.setStatus("open");
+//				room.setTotal(300);
+//				room.setType("multimedia");
+//				list.add(room);
+//				room = new MeetingRoom();
+//				room.setId(3);
+//				room.setName("nia");
+//				room.setStatus("open");
+//				room.setTotal(300);
+//				room.setType("multimedia");
+//				list.add(room);
+//				room = new MeetingRoom();
+//				room.setId(4);
+//				room.setName("nimd");
+//				room.setStatus("close");
+//				room.setTotal(300);
+//				room.setType("normal");
+//				list.add(room);
+//				request.setAttribute("roomList", list);
+//				// end of test code
+				
+				request.setAttribute("roomList", AdSearchRoomService.getRoomListByStatus(status));
+			}else{
+//				// test code
+//				List<MeetingRoom> list = new ArrayList<MeetingRoom>();
+//				MeetingRoom room = new MeetingRoom();
+//				room.setId(2);
+//				room.setName("nimei");
+//				room.setStatus("open");
+//				room.setTotal(300);
+//				room.setType("multimedia");
+//				list.add(room);
+//				room = new MeetingRoom();
+//				room.setId(4);
+//				room.setName("nia");
+//				room.setStatus("open");
+//				room.setTotal(300);
+//				room.setType("multimedia");
+//				list.add(room);
+//				room = new MeetingRoom();
+//				room.setId(6);
+//				room.setName("nimd");
+//				room.setStatus("close");
+//				room.setTotal(300);
+//				room.setType("normal");
+//				list.add(room);
+//				request.setAttribute("roomList", list);
+//				// end of test code
+				
+				request.setAttribute("roomList", AdSearchRoomService.getRoomList());
+			}
+			
+			request.getRequestDispatcher("./AdSearchRoom.jsp").forward(request, response);
 			
 		}else{
 			request.getRequestDispatcher("./meetingManager.jsp").forward(request, response);
 		}
 		
-		request.getRequestDispatcher("./AdSearchRoom.jsp").forward(request, response);
+
 	}
 
 }

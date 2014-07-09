@@ -42,7 +42,7 @@
 					<td><%=borrow.getcNum() %></td>
                     <td class="text-center">
                         <%
-                        	if(borrow.getStatus().equals("borrowing")){
+                        	if(borrow.getStatus().toString().equals("borrowing")){
                         %>
                          <a href="AdEquitmentServlet?change=1&&id=<%=borrow.getId() %>" class="btn btn-default" >
                     	   	 同意</a>

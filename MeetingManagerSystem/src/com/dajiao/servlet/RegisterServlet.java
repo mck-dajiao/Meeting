@@ -39,12 +39,15 @@ public class RegisterServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("utf-8");
 		
 		String account = (String)request.getParameter("accountRe");
 		String password = (String)request.getParameter("passwordRe");
+		String userid = (String)request.getParameter("useridRe");
 		String name = (String)request.getParameter("nameRe");
 		String department = (String)request.getParameter("departmentRe");
 		String anhao = (String)request.getParameter("anhaoRe");
+		String sex = (String)request.getParameter("sexRe");
 		
 		System.out.println("account : " + account +
 						"password : " + password +
@@ -53,16 +56,16 @@ public class RegisterServlet extends HttpServlet {
 						"anhao : " + anhao);
 		
 		User user  = new User(name, department, "unapproval");
-		user.setaccount(account);
+		user.setAccount(account);
 		user.setAnhao(anhao);
+		user.setUserid(userid);
+		user.setSex(sex);
 		
 		if(RegisterService.register(user, password)){
 			response.sendRedirect("./meetingManager.jsp?register=1");
 		}else{
 			response.sendRedirect("./meetingManager.jsp?register=0");
 		}
-		
-
 
 	}
 

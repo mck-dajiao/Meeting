@@ -45,14 +45,13 @@ public class AdApprovalServlet extends HttpServlet {
 		Administrator admin = (Administrator)request.getSession().getAttribute("person");
 		String submit = (String)request.getParameter("submit");
 		if(admin != null){
-			// request.setAttribute("userList", AdApprovalService.getUnapproval());
-			
+			/*
 			// test code
 			User user;
 			List<User> userList = new ArrayList<User>();
 			user = new User();
 			user.setaccount("jiao");
-			user.setId(11);
+			user.setUserid("11");
 			user.setDepartment("帅哥部");
 			user.setName("伪");
 			user.setSex("man");
@@ -60,7 +59,7 @@ public class AdApprovalServlet extends HttpServlet {
 			userList.add(user);
 			user = new User();
 			user.setaccount("dajiao");
-			user.setId(10);
+			user.setUserid("10");
 			user.setDepartment("帅哥部");
 			user.setName("伪装成");
 			user.setSex("man");
@@ -68,22 +67,26 @@ public class AdApprovalServlet extends HttpServlet {
 			userList.add(user);
 			request.setAttribute("userList", userList);
 			// end of test code
+     		 */
 			
 			if(submit != null){
 				String[] agree = (String[])request.getParameterValues("agree");
 				if(agree!=null){
-					System.out.println("agree "+ agree[0]);
-					AdApprovalService.agreeUserList(agree);
+					
+					if(AdApprovalService.agreeUserList(agree)==true)
+						System.out.println("agree "+ agree[0]);
 					// @TODO add response to result
 				}
-				String[] disagree = (String[])request.getParameterValues("disagress");
+				String[] disagree = (String[])request.getParameterValues("disagree");
 				if(disagree!=null){
-					System.out.println("disagree " + disagree[0]);
-					AdApprovalService.disagreeUserList(disagree);
+					
+					if(AdApprovalService.disagreeUserList(disagree)==true)
+						System.out.println("disagree " + disagree[0]);
 					// @TODO add response to result
 				}
 			}
 			
+			request.setAttribute("userList", AdApprovalService.getUnapproval());
 			request.getRequestDispatcher("./AdApproval.jsp").forward(request, response);
 		}else{
 			request.getRequestDispatcher("./meetingManager.jsp").forward(request, response);

@@ -19,7 +19,7 @@
 	<div class="bookingRoom jumbotron">
     <!-- 搜索表单开始 -->
     <div class="container">
-        <form method="post" action="BookingRoomServlet">
+        <form method="post" action="BookingRoomServlet?search=1">
             <div class="form-inline">
 				<label class="control-label">起始时间:</label>
                 <div class="form-group">

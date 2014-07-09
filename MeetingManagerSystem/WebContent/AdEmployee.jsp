@@ -58,7 +58,7 @@
 												User user = userList.get(i);
 				%>
 				<tr id="tr<%=i%>">
-					<td><%=user.getId()%></td>
+					<td><%=user.getUserid()%></td>
 					<td><%=user.getName()%></td>
 					<td><%=user.getSex()%></td>
 					<td><%=user.getDepartment()%></td>
@@ -84,62 +84,79 @@
 	</p>
 
 	</main>
-
-	<!-- 注册对话框开始 -->
-	<div id="newEmp" class="modal fade">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title text-center">添加新用户</h4>
-				</div>
-				<div class="modal-body">
-					<form class="form-horizontal" method="post"
-						action="AdEmployeeServlet?newEmployee=1">
-						<div class="form-group">
-							<label for="username" class="control-label col-md-2">用户名</label>
-							<div class="col-md-10">
-								<input type="text" name="account" class="form-control" />
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="password" class="control-label col-md-2">密码</label>
-							<div class="col-md-10">
-								<input type="password" name="password" class="form-control" />
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="password" class="control-label col-md-2">真实姓名</label>
-							<div class="col-md-10">
-								<input type="text" name="name" class="form-control" />
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="password" class="control-label col-md-2">部门</label>
-							<div class="col-md-10">
-								<input type="text" name="department" class="form-control" />
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="password" class="control-label col-md-2">暗号</label>
-							<div class="col-md-10">
-								<input type="text" name="anhao" class="form-control" />
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="text-center">
-								<button type="submit" class="btn btn-default" >添加</button>
-								<button type="button" class="btn btn-default">返回</button>
-							</div>
-						</div>
-					</form>
-				</div>
-
-			</div>
-		</div>
-	</div>
-	<!-- 注册对话框结束 -->
 	
+	<!-- 注册对话框开始 -->
+    <div id="newEmp" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title text-center">用户注册</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" method="post" action="AdEmployeeServlet?newEmployee=1" onsubmit="return check()">
+                        <div class="form-group">
+                            <label for="username" class="control-label col-md-2">用户名</label>
+                            <div class="col-md-10">
+                                <input type="text"  name="accountRe" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="control-label col-md-2">密码</label>
+                            <div class="col-md-10">
+                                <input type="password" name="passwordRe" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="control-label col-md-2">确认密码</label>
+                            <div class="col-md-10">
+                                <input type="password" name="passwordRe2" class="form-control" />
+                            </div>
+                        </div>
+						<div class="form-group">
+                            <label for="realname" class="control-label col-md-2">真实姓名</label>
+                            <div class="col-md-10">
+                                <input type="text" name="nameRe" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="sex" class="control-label col-md-2">性别</label>
+                            <div class="col-md-10">
+                                <input type="text" name="sexRe" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="userid" class="control-label col-md-2">员工编号</label>
+                            <div class="col-md-10">
+                                <input type="text" name="useridRe" class="form-control" />
+                            </div>
+                        </div>
+						<div class="form-group">
+                            <label for="department" class="control-label col-md-2">部门</label>
+                            <div class="col-md-10">
+                                <input type="text" name="departmentRe" class="form-control" />
+                            </div>
+                        </div>
+						<div class="form-group">
+                            <label for="anhao" class="control-label col-md-2">暗号</label>
+                            <div class="col-md-10">
+                                <input type="text" name="anhaoRe" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-default" >注册</button>
+                                <button type="button" class="btn btn-default" >返回</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- 注册对话框结束 -->
+
 	<form id="deleteForm" method="post" action="AdEmployeeServlet?delete=1">
 	</form>
 
@@ -157,6 +174,51 @@
 			input.setAttribute("value", userAccount);
 			
 			deleteForm.appendChild(input);
+		}
+		
+		function check(){
+			var pwd = document.getElementsByName('passwordRe')[0].value;
+			var pwd2 = document.getElementsByName('passwordRe2')[0].value;
+			if(pwd==pwd2)
+				return true;
+
+			if(pwd==null || pwd2==null){
+				alert("密码不能为空");
+				return false;
+			}
+			
+			if(document.getElementsByName("accountRe")[0]==null){
+				alert("用户名不能为空");
+				return false;
+			}
+			
+			if(document.getElementsByName("nameRe")[0]==null){
+				alert("姓名不能为空");
+				return false;
+			}
+			
+			if(document.getElementsByName("departmentRe")[0]==null){
+				alert("部门不能为空");
+				return false;
+			}
+			
+			if(document.getElementsByName("anhaoRe")[0]==null){
+				alert("暗号不能为空");
+				return false;
+			}
+			
+			if(document.getElementsByName("useridRe")[0]==null){
+				alert("员工编号不能为空");
+				return false;
+			}
+			
+			if(document.getElementsByName("sexRe")[0]==null){
+				alert("性别不能为空");
+				return false;
+			}
+			
+			alert("两次密码不一样");
+			return false;
 		}
 	</script>
 

@@ -19,7 +19,7 @@
 	<link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="./styles/dajiao.css" rel="stylesheet" type="text/css"/>
     <link href="./styles/main.min.css" rel="stylesheet" type="text/css"/>
-
+	<% request.setCharacterEncoding("utf-8");%>
 </head>
 <body>
 
