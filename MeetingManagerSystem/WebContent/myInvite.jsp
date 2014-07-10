@@ -11,6 +11,7 @@
 
 <body onload="navload(4);">
 	<%
+		request.setCharacterEncoding("utf-8");
 		String currentPage = (String)request.getParameter("page");
 	%>
 
@@ -60,7 +61,7 @@
 				<div class="jumbotron">
 					<!-- 搜索表单开始 -->
 					<div class="container">
-						<form method="post" action="MyInviteServlet?page=2&&search=1&&meetingId=<%=(String)request.getParameter("meetingId") %>" >
+						<form method="post" action="MyInviteServlet?page=2&search=1&meetingId=<%=(String)request.getParameter("meetingId") %>" >
 							<div class="form-inline">
 								<div class="form-group">
 									<input type="text" placeholder="姓名" class="form-control" name="name"/>
@@ -101,7 +102,7 @@
 					<div class="container">
 						<table class="table table-striped table-bordered" id="inviteList" >
 							<caption>
-								<strong>当前邀请名单</strong>
+								<strong>会议（<%=(String)request.getAttribute("topic") %>）当前邀请名单</strong>
 							</caption>
 							<thead>
 								<tr>
@@ -328,7 +329,7 @@
 	
 	function completeInvite2(meetingId){
 		var inviteForm = document.getElementById('inviteForm');
-		inviteForm.setAttribute("action", "MyInviteServlet?page=3&&meetingId="+meetingId);
+		inviteForm.setAttribute("action", "MyInviteServlet?page=3&meetingId="+meetingId);
 		inviteForm.submit();		
 	}
 	</script>

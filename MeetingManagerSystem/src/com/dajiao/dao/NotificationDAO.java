@@ -28,7 +28,7 @@ public class NotificationDAO {
 		try {
 			PreparedStatement pSt = null;
 			System.out.println("useraccount :" + useraccount);
-			String sql = "select topic,bookpeople,detail from meeting inner join meetinguser on meetinguser.meetingid=meeting.meetingid inner join summary on summary.meetingid=meeting.meetingid where meetinguser.account='"
+			String sql = "select topic,bookpeople,summary.detail from meeting inner join summary on summary.meetingid=meeting.meetingid inner join meetinguser on meetinguser.meetingid=meeting.meetingid where meetinguser.account='"
 					+ useraccount + "'";
 
 			pSt = conn.prepareStatement(sql);

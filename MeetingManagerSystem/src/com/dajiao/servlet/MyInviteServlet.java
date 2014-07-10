@@ -49,7 +49,7 @@ public class MyInviteServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		User user = (User)request.getSession().getAttribute("person");
-		
+
 		if(user != null ){
 			String page = (String)request.getParameter("page");
 			String search = (String)request.getParameter("search");
@@ -65,7 +65,9 @@ public class MyInviteServlet extends HttpServlet {
 			}else if (page.equals("1") || page.equals("3") || (page.equals("2") && delete != null)){
 				// jump to page 2
 				
+				request.setCharacterEncoding("utf-8");
 				String str = (String)request.getParameter("meetingId");
+				String topic = (String)request.getParameter("topic");
 				int meetingId = Integer.parseInt(str);
 				
 				// invite user
@@ -86,7 +88,9 @@ public class MyInviteServlet extends HttpServlet {
 				
 				// test code
 				System.out.println("meeting id " + meetingId);
+				System.out.println("meeting topic " + MyInviteService.getTopic(meetingId));
 				
+				request.setAttribute("topic", MyInviteService.getTopic(meetingId));
 				request.setAttribute("meetingId", String.valueOf(meetingId));
 				request.setAttribute("departmentList", AdDepartmentService.getDepartmentList());
 				request.setAttribute("inviteList", MyInviteService.getInviteList(meetingId));
@@ -107,7 +111,7 @@ public class MyInviteServlet extends HttpServlet {
 				// end of test code
 				
 				request.setAttribute("meetingId", meetingId);
-				request.setAttribute("userList", MyInviteService.getUserList(name, department));
+				request.setAttribute("userList", MyInviteService.getUserList(name, department, Integer.parseInt(meetingId)));
 				
 				page = "3";
 			}

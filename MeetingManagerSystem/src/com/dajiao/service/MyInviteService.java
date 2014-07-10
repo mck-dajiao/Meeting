@@ -16,7 +16,7 @@ public class MyInviteService {
 		return MyInviteDAO.getInviteList(meetingId);
 	}
 	
-	public static List<User> getUserList(String name, String department){
+	public static List<User> getUserList(String name, String department, int meetingId){
 		
 		if(name != null && name != ""){
 			System.out.println("search name ");
@@ -29,7 +29,7 @@ public class MyInviteService {
 		}
 		
 		System.out.println(" enter get all user ");
-		return EmployeeManagerDAO.getAllUser();
+		return EmployeeManagerDAO.getAllUserWithoutInvite(meetingId);
 		
 //		if(name == null && sex == null && department == null){
 //			return EmployeeManagerDAO.getAllUser();
@@ -79,5 +79,9 @@ public class MyInviteService {
 	}
 	public static boolean inviteUser(String[] account , int meetingId){
 		return MyInviteDAO.inviteUser(account, meetingId);
+	}
+	
+	public static String getTopic(int meetingId){
+		return MyInviteDAO.getTopicByMeetingid(meetingId);
 	}
 }

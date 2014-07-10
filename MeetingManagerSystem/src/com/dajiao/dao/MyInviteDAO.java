@@ -136,4 +136,23 @@ public class MyInviteDAO {
 		return false;
 	}
 	
+	  public static String getTopicByMeetingid(int meetingId) {
+			Connection connection = ConnectionFactory.getConnection();
+			if (connection == null)
+				return null;
+			try {
+				String sql = "select topic from meeting where meetingid="
+						+ meetingId + "";
+				PreparedStatement pStatement = connection.prepareStatement(sql);
+				ResultSet set = pStatement.executeQuery(sql);
+				while (set.next() == true) {
+					return set.getString(1);
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return null;
+		}
+	
 }

@@ -286,4 +286,36 @@ public class EmployeeManagerDAO {
 			}
 			return null;
 		}
+		
+		public static List<User> getAllUserWithoutInvite(int meetingId){
+			List<User> list = new ArrayList<User>();
+			Connection connection = ConnectionFactory.getConnection();
+			if (connection == null)
+				return null;
+			try {
+				String sql = "select * from user where account not in(	select account from invite	where meetingid="
+						+ meetingId + ")";
+				PreparedStatement pStatement = connection.prepareStatement(sql);
+				ResultSet set = pStatement.executeQuery(sql);
+				while (set.next() == true) {
+					User user = new User();
+					user.setUserid(set.getString(1));
+					user.setaccount(set.getString(2));
+					user.setName(set.getString(4));
+					user.setSex(set.getString(5));
+					user.setDepartment(set.getString(6));
+					user.setAnhao(set.getString(8));
+
+					// test
+					System.out.println("get user " + user.getAccount());
+
+					list.add(user);
+				}
+				return list;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return null;
+		}
 }
