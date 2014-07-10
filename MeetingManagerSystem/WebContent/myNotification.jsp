@@ -52,8 +52,8 @@
                     <td><%=notify.getEndtime().toString() %></td>
                     <td><%=notify.getDetail() %></td>
                     <td class="text-center">
-                        <a href="#" class="btn btn-default">同意</a>
-						<a href="#" class="btn btn-default" onclick="return confirm('确实要忽略该会议吗？');">忽略</a>
+                        <a href="NotificationServlet?agree=<%=notify.getId() %>" class="btn btn-default">同意</a>
+						<a href="NotificationServlet?disagree=<%=notify.getId() %>" class="btn btn-default" onclick="return confirm('确实要忽略该会议吗？');">忽略</a>
                     </td>
                 </tr>
                <%

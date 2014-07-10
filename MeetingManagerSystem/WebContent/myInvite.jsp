@@ -44,7 +44,7 @@
 								<td><%=meeting.getRoomname() %></td>
 								<td><%=meeting.getStarttime() %></td>
 								<td><%=meeting.getDetail() %></td>
-								<td class="text-center"><a href="./MyInviteServlet?page=2&meetingId=<%=meeting.getId() %>"
+								<td class="text-center"><a href="./MyInviteServlet?page=1&meetingId=<%=meeting.getId() %>"
 									class="btn btn-default" >邀请参会人员</a></td>
 							</tr>
 						<%
@@ -60,7 +60,7 @@
 				<div class="jumbotron">
 					<!-- 搜索表单开始 -->
 					<div class="container">
-						<form method="post" action="MyInviteServlet?page=3&&meetingId=<%=(String)request.getParameter("meetingId") %>" >
+						<form method="post" action="MyInviteServlet?page=2&&search=1&&meetingId=<%=(String)request.getParameter("meetingId") %>" >
 							<div class="form-inline">
 								<div class="form-group">
 									<input type="text" placeholder="姓名" class="form-control" name="name"/>
@@ -115,7 +115,7 @@
 							<tbody>
 							<%
 							String meetingId = (String)request.getAttribute("meetingId");
-							List<User> userList = (List<User>)request.getAttribute("userList");
+							List<User> userList = (List<User>)request.getAttribute("inviteList");
 							if(userList != null && meetingId != null){
 								for(int i = 0; i<userList.size(); i++){
 									User user = userList.get(i);
@@ -125,8 +125,8 @@
 									<td><%=user.getName() %></td>
 									<td><%=user.getSex() %></td>
 									<td><%=user.getDepartment() %></td>
-									<td><a href="#" class="btn btn-primary btn-sm"
-										onclick="deleteUser(<%=i %>,<%=user.getUserid() %>,<%=meetingId %>);">删除</a></td>
+									<td><a href="MyInviteServlet?page=2&&delete=1&&account=<%=user.getAccount() %>&&meetingId=<%=meetingId %>" 
+										class="btn btn-primary btn-sm">删除</a></td>
 								</tr>
 							<%
 								}
@@ -135,19 +135,11 @@
 							%>
 							</tbody>
 						</table>
-						<ul class="pagination pagination-xm" style="float: left;">
-							<li title="第一页"><a href="#">&laquo;</a></li>
-							<li title="上一页"><a href="#">&lsaquo;</a></li>
-							<li title="当前页" class="active"><a href="#">3</a></li>
-							<li title="下一页"><a href="#">&rsaquo;</a></li>
-							<li title="最末页"><a href="#">&raquo;</a></li>
-							<li><a href="">共<strong>98</strong>条记录，<strong>10</strong>页
-							</a></li>
-						</ul>
+						
 						<div style="float: right; padding: 5px">
-							<a href="#" class="btn btn-primary btn-sm"
+							<a href="MyInviteServlet?page=2&&invite=1" class="btn btn-primary btn-sm"
 								data-slide="prev"
-								onclick="completeInvite(<%=meetingId %>);">完成邀请</a>
+								">完成邀请</a>
 						</div>
 					</div>
 				</div>
@@ -184,7 +176,8 @@
 									<td><%=user.getDepartment() %></td>
 									<td><a href="#"
 										class="btn btn-primary btn-sm"
-										onclick="inviteUser(<%=i%>,<%=user.getUserid()%>,<%=meetingId%>)">邀请</a></td>
+										onclick="inviteUser('<%=i%>','<%=user.getAccount() %>')"
+										>邀请</a></td>
 								</tr>
 							<%
 									}
@@ -194,15 +187,7 @@
 							</tbody>
 
 						</table>
-						<ul class="pagination pagination-xm" style="float: left;">
-							<li title="第一页"><a href="#">&laquo;</a></li>
-							<li title="上一页"><a href="#">&lsaquo;</a></li>
-							<li title="当前页" class="active"><a href="#">3</a></li>
-							<li title="下一页"><a href="#">&rsaquo;</a></li>
-							<li title="最末页"><a href="#">&raquo;</a></li>
-							<li><a href="">共<strong>98</strong>条记录，<strong>10</strong>页
-							</a></li>
-						</ul>
+						
 						<div style="float: right; padding: 5px">
 							<a href="#" class="btn btn-primary btn-sm"
 								onclick="completeInvite2(<%=meetingId %>)">完成</a>
@@ -283,7 +268,7 @@
 	<form id="deleteForm" method="post">
 	</form>
 	
-	<form id="inviteForm" action="MyInviteServlet?page=3" method="post">
+	<form id="inviteForm" method="post">
 	</form>
 	<!-- 提交数据暂存结束 -->
 
@@ -307,12 +292,14 @@
 	}
 	titleLoad("邀请参会");
 	
-	function deleteUser(index, userId, meetingId){
+	
+	/*
+	function deleteUser(index, userAccount, meetingId){
 		document.getElementById('inviteList').children[2].removeChild(document.getElementById('itr'+index));
 		var deleteForm = document.getElementById('deleteForm');
 		var input = document.createElement("input");
 		var id = deleteForm.childElementCount + 1;
-		var value = userId + " " + meetingId;
+		var value = userAccount + " " + meetingId;
 		input.setAttribute("type", "hidden");
 		input.setAttribute("name", "deleteUser");
 		input.setAttribute("value", value);
@@ -322,26 +309,26 @@
 	
 	function completeInvite(meetingId){
 		var deleteForm = document.getElementById('deleteForm');
-		deleteForm.setAttribute("action", "MyInviteServlet?page=1&&meetingId="+meetingId);
+		deleteForm.setAttribute("action", "MyInviteServlet?page=2&&invite=1&&meetingId="+meetingId);
 		deleteForm.submit();
 	}
+	*/
 	
-	function inviteUser(index, userId, meetingId){
+	function inviteUser(index, userAccount){
 		document.getElementById('searchList').children[2].removeChild(document.getElementById('str'+index));
 		var inviteForm = document.getElementById('inviteForm');
 		var input = document.createElement("input");
 		var id = inviteForm.childElementCount + 1;
-		var value = userId + " " + meetingId;
 		input.setAttribute("type", "hidden");
 		input.setAttribute("name", "inviteUser");
-		input.setAttribute("value", value);
+		input.setAttribute("value", userAccount);
 		
 		inviteForm.appendChild(input);
 	}
 	
 	function completeInvite2(meetingId){
 		var inviteForm = document.getElementById('inviteForm');
-		inviteForm.setAttribute("action", "MyInviteServlet?page=2&&meetingId="+meetingId);
+		inviteForm.setAttribute("action", "MyInviteServlet?page=3&&meetingId="+meetingId);
 		inviteForm.submit();		
 	}
 	</script>

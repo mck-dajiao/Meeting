@@ -23,5 +23,13 @@ public class NotificationService {
 	public static List<MeetingRecord> getSummaryMessage(String useraccount){
 		return NotificationDAO.getRecordList(useraccount);
 	}
+	
+	public static boolean agreeInvite(int meetingId, String account){
+		return NotificationDAO.agreeInvite(meetingId, account);
+	}
+	
+	public static boolean disagreeInvite(int meetingId, String account){
+		return NotificationDAO.disagreeInvite(meetingId, account);
+	}
 
 }

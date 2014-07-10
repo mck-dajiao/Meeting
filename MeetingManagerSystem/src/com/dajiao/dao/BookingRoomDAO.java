@@ -54,52 +54,43 @@ public class BookingRoomDAO {
 		return null;
 	}
 	
-	public static boolean bookingRoom(Meeting meeting) {
-		Connection conn = ConnectionFactory.getConnection();
-		if (conn == null)
-			return false;
-		try {
-			String sql = "insert into meeting(meetingroomid,topic,starttime,endtime,bookpeople) values("
-					+ meeting.getMeetingRoom()
-					+ ",'"
-					+ meeting.getTopic()
-					+ "','"
-					+ meeting.getStarttime()
-					+ "','"
-					+ meeting.getEndtime()
-					+ "','"
-					+ meeting.getBookpeople()
-					+ "');";
-			PreparedStatement ps = conn.prepareStatement(sql);
-			int rs = ps.executeUpdate(sql);
-			if (rs == 0)
+	 public static boolean bookingRoom(Meeting meeting) {
+			Connection conn = ConnectionFactory.getConnection();
+			if (conn == null)
 				return false;
-			sql = "select meetingid from meeting where meetingroomid="
-					+ meeting.getMeetingRoom() + " and topic='"
-					+ meeting.getTopic() + "' and starttime='"
-					+ meeting.getStarttime() + "' and endtime='"
-					+ meeting.getEndtime() + "' and bookpeople='"
-					+ meeting.getBookpeople() + "'";
-			ps = conn.prepareStatement(sql);
-			ResultSet set = ps.executeQuery(sql);
-			int meetingid = 0;
-			if (set.next() == true) {
-				meetingid = set.getInt(1);
+			try {
+				String useraccountString = null;
+				String sql = "select account from user where name='"
+						+ meeting.getBookpeople() + "'";
+				PreparedStatement ps = conn.prepareStatement(sql);
+				ResultSet set = ps.executeQuery(sql);
+				while (set.next() == true) {
+					useraccountString = set.getString(1);
+				}
+				sql = "insert into meeting(topic,account,meetingroomname,starttime,endtime,bookpeople)values ('"
+						+ meeting.getTopic()
+						+ "','"
+						+ useraccountString
+						+ "','"
+						+ meeting.getRoomname()
+						+ "','"
+						+ meeting.getStarttime()
+						+ "','"
+						+ meeting.getEndtime()
+						+ "','"
+						+ meeting.getBookpeople() + "')";
+				ps = conn.prepareStatement(sql);
+				int rs = ps.executeUpdate(sql);
+				if (rs == 0)
+					return false;
+				return true;
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-
-			sql = "insert into notification(meetingid)values(" + meetingid
-					+ ")";
-			ps = conn.prepareStatement(sql);
-			rs = ps.executeUpdate(sql);
-			if (rs == 0)
-				return false;
-			return true;
-
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			return false;
 		}
-		return false;
-	}
+
 	
 }

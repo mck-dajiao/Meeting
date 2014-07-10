@@ -10,7 +10,7 @@ public class ConnectionFactory {
      private final static String dbName = "test";
      private final static String password = "zhou1234";
      private final static String username = "dajiao";
-     private final static String url = "jdbc:mysql://10.0.18.2:3306/" + dbName;
+     private final static String url = "jdbc:mysql://10.0.18.20:3306/" + dbName;
 	
 	public static Connection getConnection(){
 		Connection conn = null;

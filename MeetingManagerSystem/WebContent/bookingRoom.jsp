@@ -67,7 +67,7 @@
                     <td><%=room.getName() %></td>
                     <td><%=room.getType() %></td>
                     <td class="text-center">
-                        <a href="#booking" class="btn btn-default" data-toggle="modal" onclick="addRoomId('<%=room.getId()%>');">预约</a>
+                        <a href="#booking" class="btn btn-default" data-toggle="modal" onclick="addRoomId('<%=room.getName() %>');">预约</a>
                     </td>
                 </tr>
              <%
@@ -119,12 +119,12 @@
 titleLoad("预约会议");
 
 var success = '<%=success%>';
-if(success != 'null' && success.equals("1")){
+if(success != '' && success=='1'){
 	bootbox.alert("预订成功！");
 }
 
-function addRoomId(id){
-	document.getElementById('meetingRoom').setAttribute("value", id);
+function addRoomId(name){
+	document.getElementById('meetingRoom').setAttribute("value", name);
 }
 function bookingSubmit(){
 	var topic = document.getElementById('meetingTopic').value;

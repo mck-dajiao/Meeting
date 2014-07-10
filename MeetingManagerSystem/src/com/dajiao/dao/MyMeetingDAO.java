@@ -22,8 +22,7 @@ public class MyMeetingDAO {
 			if (connection == null)
 				return null;
 			try {
-				String sql = "select meeting.meetingid,meeting.bookpeople,meeting.topic,meetingroom.meetingroomid"
-						+ ",meetingroom.name,meeting.starttime,meeting.endtime,notification.detail from meeting inner join meetinguser on meetinguser.meetingid=meeting.meetingid inner join meetingroom on meetingroom.meetingroomid=meeting.meetingroomid inner join notification on notification.meetingid=meeting.meetingid where meetinguser.useraccount='"
+				String sql = "select meeting.meetingid,bookpeople,topic,meetingroomname,starttime,endtime,meeting.explain from meetinguser inner join meeting on meetinguser.meetingid=meeting.meetingid where meetinguser.account='"
 						+ useraccount + "'";
 				PreparedStatement pStatement = connection.prepareStatement(sql);
 				ResultSet set = pStatement.executeQuery(sql);
@@ -32,11 +31,10 @@ public class MyMeetingDAO {
 					meeting.setId(set.getInt(1));
 					meeting.setBookpeople(set.getString(2));
 					meeting.setTopic(set.getString(3));
-					meeting.setMeetingRoom(set.getInt(4));
-					meeting.setRoomName(set.getString(5));
-					meeting.setStarttime(set.getTimestamp(6));
-					meeting.setEndtime(set.getTimestamp(7));
-					meeting.setDetail(set.getString(8));
+					meeting.setRoomName(set.getString(4));
+					meeting.setStarttime(set.getTimestamp(5));
+					meeting.setEndtime(set.getTimestamp(6));
+					meeting.setDetail(set.getString(7));
 					list.add(meeting);
 				}
 				return list;
@@ -46,5 +44,6 @@ public class MyMeetingDAO {
 			}
 			return null;
 		}
+
 
 }

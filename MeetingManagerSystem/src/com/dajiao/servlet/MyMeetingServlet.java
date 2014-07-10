@@ -45,21 +45,22 @@ public class MyMeetingServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		User user = (User)request.getSession().getAttribute("person");
 		if(user != null){
+			
+			
+			
+//			// test code
+//			List<Meeting> meetingList = new ArrayList<Meeting>();
+//			Meeting meeting = new Meeting();
+//			meeting.setTopic("topic");
+//			meeting.setDetail("hahah");
+//			meeting.setRoomname("wobuzhidao");
+//			meeting.setStarttime(Timestamp.valueOf("2014-07-12 21:30:00"));
+//			meeting.setEndtime(Timestamp.valueOf("2014-07-13 22:00:00"));
+//			meetingList.add(meeting);
+//			request.setAttribute("meetingList", meetingList);
+//			// end of test code
+			
 			request.setAttribute("meetingList", MyMeetingService.getMyMeeting(user.getaccount()));
-			
-			
-			// test code
-			List<Meeting> meetingList = new ArrayList<Meeting>();
-			Meeting meeting = new Meeting();
-			meeting.setTopic("topic");
-			meeting.setDetail("hahah");
-			meeting.setRoomname("wobuzhidao");
-			meeting.setStarttime(Timestamp.valueOf("2014-07-12 21:30:00"));
-			meeting.setEndtime(Timestamp.valueOf("2014-07-13 22:00:00"));
-			meetingList.add(meeting);
-			request.setAttribute("meetingList", meetingList);
-			// end of test code
-			
 			request.getRequestDispatcher("./myMeeting.jsp").forward(request, response);
 		}else{
 			request.getRequestDispatcher("./meetingManager.jsp").forward(request, response);

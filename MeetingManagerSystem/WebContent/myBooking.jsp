@@ -117,7 +117,7 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="description" class="control-label col-md-2">变更说明</label>
+							<label for="description" class="control-label col-md-2">会议说明</label>
 							<div class="col-md-10">
 								<input type="text" id="detail" name="detail"
 									class="form-control" />

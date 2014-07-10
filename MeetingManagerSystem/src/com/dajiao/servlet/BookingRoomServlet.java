@@ -97,7 +97,7 @@ public class BookingRoomServlet extends HttpServlet {
 				meeting.setbookpeople(user.getName());
 				meeting.setStarttime(start);
 				meeting.setEndtime(end);
-				meeting.setMeetingRoom(Integer.parseInt(meetingRoom));
+				meeting.setRoomname(meetingRoom);
 				if (BookingRoomService.bookingRoom(meeting) == true) {
 					success = "1";
 				}

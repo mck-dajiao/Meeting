@@ -33,6 +33,10 @@ public class EmployeeManagerDAO {
 					user.setSex(set.getString(5));
 					user.setDepartment(set.getString(6));
 					user.setAnhao(set.getString(8));
+					
+					//test
+					System.out.println("get user " + user.getAccount());
+					
 					list.add(user);
 				}
 				return list;
@@ -251,5 +255,35 @@ public class EmployeeManagerDAO {
 				e.printStackTrace();
 			}
 			return false;
+		}
+		
+
+		public static List<User> getUserBySex(String sex) {
+			// 根据名字获取用户列表
+			List<User> list = new ArrayList<User>();
+			Connection connection = ConnectionFactory.getConnection();
+			if (connection == null)
+				return null;
+			try {
+				String sql = "select * from user where status='approvaled' and sex='"
+						+ sex + "'";
+				PreparedStatement pStatement = connection.prepareStatement(sql);
+				ResultSet set = pStatement.executeQuery(sql);
+				while (set.next() == true) {
+					User user = new User();
+					user.setUserid(set.getString(1));
+					user.setaccount(set.getString(2));
+					user.setName(set.getString(4));
+					user.setSex(set.getString(5));
+					user.setDepartment(set.getString(6));
+					user.setAnhao(set.getString(8));
+					list.add(user);
+				}
+				return list;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return null;
 		}
 }
